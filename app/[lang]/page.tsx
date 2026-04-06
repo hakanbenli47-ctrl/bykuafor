@@ -15,7 +15,7 @@ const [activeImage, setActiveImage] = useState(0)
 const [activeVideo, setActiveVideo] = useState(0)
   const [scrolled, setScrolled] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
-  
+  const [showLang, setShowLang] = useState(false)
   const lang = typeof window !== "undefined"
   ? window.location.pathname.split("/")[1]
   : "tr"
@@ -91,6 +91,8 @@ useEffect(() => {
 <main style={{ background: theme.bg, color: theme.text }} className="overflow-hidden page-fade">
 
 {/* HEADER */}
+const [showLang, setShowLang] = useState(false)
+
 <header
 className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
   scrolled ? "backdrop-blur-xl border-b" : ""
@@ -101,114 +103,109 @@ style={{
 >
   <div className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
 
-    {/* LOGO */}
-    <div className="leading-tight">
-      <h1 
-  className="heading font-bold text-lg tracking-widest"
-style={{ color: theme.text }}
->
-        {siteData.genel.isim}
-      </h1>
+{/* LOGO */}
+<div className="leading-tight">
+  <h1 
+    className="heading font-bold text-lg tracking-widest"
+    style={{ color: theme.text }}
+  >
+    {siteData.genel.isim}
+  </h1>
 
-    <p 
-  className="text-xs tracking-[0.25em]"
-style={{ color: theme.textSoft }}
->
-        {siteData.genel.altBaslik}
-      </p>
-    </div>
+  <p 
+    className="text-xs tracking-[0.25em]"
+    style={{ color: theme.textSoft }}
+  >
+    {siteData.genel.altBaslik}
+  </p>
+</div>
 
-    {/* MENU */}
-   <nav
+{/* MENU (SADECE DESKTOP) */}
+<nav
   className="hidden md:flex gap-8 text-xs uppercase tracking-widest"
   style={{ color: theme.text }}
 >
-     {siteData.menu.map((item: any, i: number) => (
-       <a
-  key={i}
-  href={`/${currentLang}${item.link}`}
-  style={{ color: theme.text }}
-  className="hover:opacity-70 transition"
->
-          {item.label}
-        </a>
-      ))}
-    </nav>
+  {siteData.menu.map((item: any, i: number) => (
+    <a
+      key={i}
+      href={`/${currentLang}${item.link}`}
+      style={{ color: theme.text }}
+      className="hover:opacity-70 transition"
+    >
+      {item.label}
+    </a>
+  ))}
+</nav>
 
-    {/* ACTIONS */}
-  <div className="flex items-center gap-2 md:gap-3">
-<div className="flex gap-1 md:gap-2 text-[10px] md:text-xs">
+{/* ACTIONS */}
+<div className="flex items-center gap-2 md:gap-3">
 
+  {/* 🌐 DİL (DESKTOP) */}
+  <div className="hidden md:flex gap-1 md:gap-2 text-[10px] md:text-xs">
+    <a href="/tr" style={{ color: currentLang === "tr" ? theme.primary : theme.text }} className={`${currentLang === "tr" ? "font-bold" : "opacity-60 hover:opacity-100"}`}>TR</a>
+    <a href="/en" style={{ color: currentLang === "en" ? theme.primary : theme.text }} className={`${currentLang === "en" ? "font-bold" : "opacity-60 hover:opacity-100"}`}>EN</a>
+    <a href="/de" style={{ color: currentLang === "de" ? theme.primary : theme.text }} className={`${currentLang === "de" ? "font-bold" : "opacity-60 hover:opacity-100"}`}>DE</a>
+    <a href="/ru" style={{ color: currentLang === "ru" ? theme.primary : theme.text }} className={`${currentLang === "ru" ? "font-bold" : "opacity-60 hover:opacity-100"}`}>RU</a>
+  </div>
+
+  {/* 🌐 MOBİL DİL */}
+  <div className="relative md:hidden">
+    <button
+      onClick={() => setShowLang(!showLang)}
+      className="w-9 h-9 flex items-center justify-center rounded-full border text-white"
+    >
+      🌐
+    </button>
+
+    {showLang && (
+      <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-lg text-xs overflow-hidden">
+        <a href="/tr" className="block px-3 py-2 hover:bg-gray-100">TR</a>
+        <a href="/en" className="block px-3 py-2 hover:bg-gray-100">EN</a>
+        <a href="/de" className="block px-3 py-2 hover:bg-gray-100">DE</a>
+        <a href="/ru" className="block px-3 py-2 hover:bg-gray-100">RU</a>
+      </div>
+    )}
+  </div>
+
+  {/* WHATSAPP */}
   <a
-    href="/tr"
-    style={{ color: currentLang === "tr" ? theme.primary : theme.text }}
-    className={`px-2 py-1 rounded-md transition ${
-      currentLang === "tr" ? "font-bold" : "opacity-60 hover:opacity-100"
-    }`}
+    href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
+    style={{
+      background: theme.primary,
+      color: "#fff",
+      boxShadow: `0 0 20px ${theme.primary}80`
+    }}
+    className="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full"
   >
-    TR
+    <FaWhatsapp />
   </a>
 
+  {/* 📞 MOBİL ARA */}
   <a
-    href="/en"
-    style={{ color: currentLang === "en" ? theme.primary : theme.text }}
-    className={`px-2 py-1 rounded-md transition ${
-      currentLang === "en" ? "font-bold" : "opacity-60 hover:opacity-100"
-    }`}
+    href={`tel:${siteData.iletisim.telefon}`}
+    className="w-9 h-9 flex items-center justify-center rounded-full bg-black text-white md:hidden"
   >
-    EN
+    📞
   </a>
 
+  {/* CTA (SADECE DESKTOP) */}
   <a
-    href="/de"
-    style={{ color: currentLang === "de" ? theme.primary : theme.text }}
-    className={`px-2 py-1 rounded-md transition ${
-      currentLang === "de" ? "font-bold" : "opacity-60 hover:opacity-100"
-    }`}
+    href={`tel:${siteData.iletisim.telefon}`}
+    style={{
+      background: theme.primary,
+      color: "#fff"
+    }}
+    className="hidden md:block btn-primary px-3 md:px-5 py-2 rounded-xl font-semibold tracking-wide shadow-lg hover:scale-105 transition text-xs md:text-sm"
   >
-    DE
-  </a>
-
-  <a
-    href="/ru"
-    style={{ color: currentLang === "ru" ? theme.primary : theme.text }}
-    className={`px-2 py-1 rounded-md transition ${
-      currentLang === "ru" ? "font-bold" : "opacity-60 hover:opacity-100"
-    }`}
-  >
-    RU
+    Randevu Al
   </a>
 
 </div>
-      {/* WHATSAPP */}
-     <a
-  href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
-  style={{
-    background: theme.primary,
-    color: "#fff",
-    boxShadow: `0 0 20px ${theme.primary}80`
-  }}
- className="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full"
->
-        <FaWhatsapp />
-      </a>
 
-      {/* CTA */}
-      <a
-        href={`tel:${siteData.iletisim.telefon}`}
-        style={{
-          background: theme.primary,
-          color: "#fff"
-        }}
-    className="btn-primary px-3 md:px-5 py-2 rounded-xl font-semibold tracking-wide shadow-lg hover:scale-105 transition text-xs md:text-sm"
-      >
-        Randevu Al
-      </a>
-
-    </div>
 
   </div>
 </header>
+
 
 {/* HERO */}
 <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
