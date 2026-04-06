@@ -66,47 +66,52 @@ useEffect(() => {
 
 {/* HEADER */}
 <header
-  className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
-   scrolled
-  ? "bg-black/70 backdrop-blur-xl border-b border-white/10"
-  : "bg-black/30 backdrop-blur-md"
-  }`}
+className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
+  scrolled ? "backdrop-blur-xl border-b" : ""
+}`}
+style={{
+  background: scrolled ? theme.bg + "cc" : theme.bg + "99"
+}}
 >
-  <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+  <div className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
 
     {/* LOGO */}
     <div className="leading-tight">
       <h1 
   className="heading font-bold text-lg tracking-widest"
-  style={{ color: themes.saglik.text }}
+style={{ color: theme.text }}
 >
         {siteData.genel.isim}
       </h1>
 
     <p 
   className="text-xs tracking-[0.25em]"
-  style={{ color: themes.saglik.textSoft }}
+style={{ color: theme.textSoft }}
 >
         {siteData.genel.altBaslik}
       </p>
     </div>
 
     {/* MENU */}
-   <nav className="hidden md:flex gap-8 text-xs uppercase tracking-widest text-main">
+   <nav
+  className="hidden md:flex gap-8 text-xs uppercase tracking-widest"
+  style={{ color: theme.text }}
+>
      {siteData.menu.map((item: any, i: number) => (
-        <a
-          key={i}
-          href={`/${currentLang}${item.link}`}
-          className="hover:opacity-70 transition"
-        >
+       <a
+  key={i}
+  href={`/${currentLang}${item.link}`}
+  style={{ color: theme.text }}
+  className="hover:opacity-70 transition"
+>
           {item.label}
         </a>
       ))}
     </nav>
 
     {/* ACTIONS */}
-    <div className="flex items-center gap-3">
-<div className="flex gap-2 text-xs">
+  <div className="flex items-center gap-2 md:gap-3">
+<div className="flex gap-1 md:gap-2 text-[10px] md:text-xs">
 
   <a
     href="/tr"
@@ -157,7 +162,7 @@ useEffect(() => {
     color: "#fff",
     boxShadow: `0 0 20px ${theme.primary}80`
   }}
-  className="w-10 h-10 flex items-center justify-center rounded-full hover:scale-110 transition"
+ className="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full"
 >
         <FaWhatsapp />
       </a>
@@ -169,7 +174,7 @@ useEffect(() => {
           background: theme.primary,
           color: "#fff"
         }}
-     className="btn-primary px-5 py-2 rounded-xl font-semibold tracking-wide shadow-lg hover:scale-105 hover:opacity-90 transition text-sm"
+    className="btn-primary px-3 md:px-5 py-2 rounded-xl font-semibold tracking-wide shadow-lg hover:scale-105 transition text-xs md:text-sm"
       >
         Randevu Al
       </a>
