@@ -883,7 +883,7 @@ useEffect(() => {
     )}
 
     <a
-      href={`https://wa.me/${siteData.iletisim.whatsapp}`}
+       href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
       className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition"
       style={{ background: "#25D366", color: "#fff" }}
     >
