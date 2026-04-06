@@ -92,7 +92,7 @@ useEffect(() => {
 
       {/* WHATSAPP */}
      <a
-  href={`https://wa.me/${siteData.iletisim.whatsapp}`}
+  href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum}`}
   style={{
     background: theme.primary,
     color: "#fff",
