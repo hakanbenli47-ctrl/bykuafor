@@ -6,6 +6,7 @@ export const siteData = {
     slogan: "Tarzını yansıt, farkını göster.",
     aciklama: "Kadın ve erkeklere özel profesyonel saç ve bakım hizmetleri.",
     altBaslik: "Profesyonel Kuaför & Güzellik",
+   konumAciklama: "Tatiline yakışan görünüm, hemen yanında.",
   },
 
   // 🔹 MENÜ
@@ -14,7 +15,14 @@ export const siteData = {
     { label: "Süreç", link: "#surec" },
     { label: "Yorumlar", link: "#yorumlar" }
   ],
-
+yakinOteller: [
+  "Land of Legends – 5 dk",
+  "Granada Luxury Belek – 5 dk",
+  "Rixos Premium Belek – 10 dk",
+  "Maxx Royal Belek – 10 dk",
+  "Voyage Belek – 10 dk",
+  "Cullinan Belek – 10 dk"
+],
   // 🔹 HERO
 hero: {
 buton1: "Hemen Ara",
@@ -102,12 +110,12 @@ konumGorsel: "/konum.jpg"
   // 🔹 STATS
   stats: [
     {
-      deger: "1000+",
+      deger: "3000+",
       label: "Mutlu Müşteri",
       aciklama: "Memnuniyet odaklı hizmet"
     },
     {
-      deger: "5+",
+      deger: "15+",
       label: "Yıl Deneyim",
       aciklama: "Profesyonel ekip"
     },
@@ -201,12 +209,79 @@ konumGorsel: "/konum.jpg"
 
   // 🔹 İLETİŞİM
   iletisim: {
-    telefon: "05456570271",
-    whatsapp: "905456570271",
-    adres: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x14c37b674e45454f:0xd4046c3f8ac80381?entry=s&sa=X&ved=1t:8290&hl=tr-tr&ictx=111&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn3qwRYPvs2YW_CX_6XcGRiDHXF1o9CurYVnhYJxmSIjC4Q9nv-FPlbQZ8qac_aem_StugcwFpgPkOFSwVhSiufQ",
-    instagram: "https://www.instagram.com/by_willy_coiffeur"
+  telefon: "905456570271", // ✅ düzeltildi
+  whatsapp: "905456570271",
+  adres: "https://www.google.com/maps/place/By+Willy+Coiffeur+Antalya",
+  instagram: "https://www.instagram.com/by_willy_coiffeur",
+
+  haritaEmbed: "https://www.google.com/maps?q=By+Willy+Coiffeur+Antalya&output=embed"
+},
+fiyatlar: {
+  baslik: "Fiyatlar",
+  aciklama: "Tüm hizmetlerimiz başlayan fiyatlarla sunulmaktadır",
+
+  erkek: {
+    baslik: "Erkek Bakım",
+    liste: [
+      { ad: "Saç Kesimi", fiyat: "₺500+" },
+      { ad: "Sakal Tıraşı", fiyat: "₺300+" }
+    ]
   },
 
+  kadin: {
+    baslik: "Kadın Bakım",
+    liste: [
+      { ad: "Saç Kesimi", fiyat: "₺500+" },
+      { ad: "Fön", fiyat: "₺500+" },
+      { ad: "Saç Boyama", fiyat: "₺800+" },
+      { ad: "Ombré", fiyat: "₺2000+" }
+    ]
+  },
+
+  detay: [
+    {
+      baslik: "Erkek Hizmetleri",
+      liste: [
+        { ad: "VIP Kesim", fiyat: "₺600+" },
+        { ad: "Fade", fiyat: "₺700+" },
+        { ad: "Sakal", fiyat: "₺300+" },
+        { ad: "Kombine", fiyat: "₺800+" }
+      ]
+    },
+    {
+      baslik: "Bakım",
+      liste: [
+        { ad: "Cilt Bakımı", fiyat: "₺500+" },
+        { ad: "Masaj", fiyat: "₺400+" },
+        { ad: "Kaş", fiyat: "₺300+" },
+        { ad: "Ağda", fiyat: "₺150+" }
+      ]
+    },
+    {
+      baslik: "Renklendirme",
+      liste: [
+        { ad: "Boya", fiyat: "₺800+" },
+        { ad: "Platin", fiyat: "₺1500+" },
+        { ad: "Perma", fiyat: "₺1200+" },
+        { ad: "Keratin", fiyat: "₺1000+" }
+      ]
+    }
+  ],
+
+  agda: {
+    baslik: "Ağda Hizmetleri",
+    liste: [
+      { ad: "Koltuk Altı", fiyat: "₺400+" },
+      { ad: "Yarım Bacak", fiyat: "₺500+" },
+      { ad: "Tüm Bacak", fiyat: "₺800+" },
+      { ad: "Kol", fiyat: "₺600+" },
+      { ad: "Bikini", fiyat: "₺800+" },
+      { ad: "Sırt", fiyat: "₺600+" }
+    ]
+  },
+
+  not: "* Fiyatlar saç uzunluğu ve işleme göre değişebilir"
+},
   // 🔹 FOOTER
   footer: {
     aciklama: "BY Willy Belek Kuaför ile tarzını yenile.",

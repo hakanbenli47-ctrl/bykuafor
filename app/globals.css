@@ -11,14 +11,190 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+/* 🔥 AKAN BORDER */
+@keyframes borderFlow {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
 
+.animate-borderFlow {
+  background: linear-gradient(
+    120deg,
+    #1e3a8a,
+    #ffffff,
+    #dc2626,
+    #1e3a8a
+  );
+  background-size: 200% 200%;
+  animation: borderFlow 8s linear infinite;
+  opacity: 0.15; /* 🔥 düşürdük */
+  filter: blur(60px); /* 🔥 yumuşattık */
+}
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row b {
+  color: #111;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.miniCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+}/* ANA KART */
+.cardPro {
+  background: #fff;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* SATIR */
+.rowPro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.rowPro:last-child {
+  border-bottom: none;
+}
+
+/* FİYAT */
+.priceTag {
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* DETAY */
+.miniCardPro {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* GENEL ROW */
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* SMALL */
+.small {
+  font-size: 13px;
+}
+
+/* MOBİL */
+@media (max-width: 768px) {
+  .cardPro {
+    padding: 14px;
+  }
+
+  .rowPro {
+    padding: 12px 0;
+  }
+
+  .priceTag {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+/* PREMIUM KART */
+.premiumCard {
+  padding: 32px;
+  border-radius: 24px;
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.premiumCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+.premiumCard h3 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* SATIR */
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* MİNİ */
+.miniCard {
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.miniCard:hover {
+  transform: translateY(-3px);
+}
+
+.miniCard p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
 body {
   background: var(--background);
   color: var(--foreground);

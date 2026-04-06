@@ -6,6 +6,7 @@ export const siteData = {
     slogan: "Zeig deinen Stil, mach den Unterschied.",
     aciklama: "Professionelle Haar- und Beauty-Dienstleistungen für Damen und Herren.",
     altBaslik: "Professioneller Friseur & Beauty",
+    konumAciklama: "Ein Look, der zu deinem Urlaub passt – direkt in deiner Nähe.",
   },
 
   // 🔹 MENÜ
@@ -14,58 +15,106 @@ export const siteData = {
     { label: "Ablauf", link: "#surec" },
     { label: "Bewertungen", link: "#yorumlar" }
   ],
-
+yakinOteller: [
+  "Land of Legends – 5 Min.",
+  "Granada Luxury Belek – 5 Min.",
+  "Rixos Premium Belek – 10 Min.",
+  "Maxx Royal Belek – 10 Min.",
+  "Voyage Belek – 10 Min.",
+  "Cullinan Belek – 10 Min."
+],
   // 🔹 HERO
 hero: {
-  buton1: "Hemen Ara",
-  buton2: "WhatsApp",
+buton1: "Hemen Ara",
+buton2: "WhatsApp",
 
-  slider: [
-    {
-      type: "image",
-      src: "/salon1.jpg",
-      baslik: "BY WILLY BELEK KUAFÖR",
-      aciklama: "Profesyonel dokunuş, net sonuç"
-    },
-    {
-      type: "image",
-      src: "/salon2.jpg",
-      baslik: "Tarzını Yenile",
-      aciklama: "Modern kesim ve bakım"
-    },
-    {
-      type: "video",
-      src: "/video1.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-    {
-      type: "image",
-      src: "/salon3.jpg",
-      baslik: "Premium Deneyim",
-      aciklama: "Konfor + kalite"
-    },
-    {
-      type: "video",
-      src: "/video2.mp4",
-      baslik: "Sonuç Konuşur",
-      aciklama: "İlk seansta farkı gör"
-    }
-  ],
-
-  konumGorsel: "/konum.jpg"
+slider: [
+{
+type: "image",
+src: "/salon1.jpg",
+baslik: "BY WILLY BELEK KUAFÖR",
+aciklama: "Profesyonel dokunuş, net sonuç"
 },
+{
+type: "image",
+src: "/salon2.jpg",
+baslik: "Tarzını Yenile",
+aciklama: "Modern kesim ve bakım"
+},
+{
+type: "video",
+src: "/video1.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video3.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video4.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video5.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video6.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video7.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video8.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "image",
+src: "/salon3.jpg",
+baslik: "Premium Deneyim",
+aciklama: "Konfor + kalite"
+},
+{
+type: "image",
+src: "/salon4.jpg",
+baslik: "Premium Deneyim",
+aciklama: "Konfor + kalite"
+},
+{
+type: "video",
+src: "/video2.mp4",
+baslik: "Sonuç Konuşur",
+aciklama: "İlk seansta farkı gör"
+}
+],
 
+konumGorsel: "/konum.jpg"
+},
 
   // 🔹 STATS
   stats: [
     {
-      deger: "1000+",
+      deger: "3000+",
       label: "Zufriedene Kunden",
       aciklama: "Fokus auf Kundenzufriedenheit"
     },
     {
-      deger: "5+",
+      deger: "15+",
       label: "Jahre Erfahrung",
       aciklama: "Professionelles Team"
     },
@@ -158,13 +207,80 @@ hero: {
   },
 
   // 🔹 İLETİŞİM
-  iletisim: {
-    telefon: "05456570271",
-    whatsapp: "905456570271",
-    adres: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x14c37b674e45454f:0xd4046c3f8ac80381",
-    instagram: "https://www.instagram.com/by_willy_coiffeur"
+ iletisim: {
+  telefon: "905456570271", // ✅ düzeltildi
+  whatsapp: "905456570271",
+  adres: "https://www.google.com/maps/place/By+Willy+Coiffeur+Antalya",
+  instagram: "https://www.instagram.com/by_willy_coiffeur",
+
+  haritaEmbed: "https://www.google.com/maps?q=By+Willy+Coiffeur+Antalya&output=embed"
+},
+fiyatlar: {
+  baslik: "Preise",
+  aciklama: "Alle Dienstleistungen werden ab Startpreisen angeboten",
+
+  erkek: {
+    baslik: "Herrenpflege",
+    liste: [
+      { ad: "Haarschnitt", fiyat: "₺500+" },
+      { ad: "Bartpflege", fiyat: "₺300+" }
+    ]
   },
 
+  kadin: {
+    baslik: "Damenpflege",
+    liste: [
+      { ad: "Haarschnitt", fiyat: "₺500+" },
+      { ad: "Föhnen", fiyat: "₺500+" },
+      { ad: "Haarfärbung", fiyat: "₺800+" },
+      { ad: "Ombre", fiyat: "₺2000+" }
+    ]
+  },
+
+  detay: [
+    {
+      baslik: "Herren Dienstleistungen",
+      liste: [
+        { ad: "VIP Haarschnitt", fiyat: "₺600+" },
+        { ad: "Fade Schnitt", fiyat: "₺700+" },
+        { ad: "Bart Styling", fiyat: "₺300+" },
+        { ad: "Haare + Bart", fiyat: "₺800+" }
+      ]
+    },
+    {
+      baslik: "Pflege & Schönheit",
+      liste: [
+        { ad: "Hautpflege", fiyat: "₺500+" },
+        { ad: "Massage", fiyat: "₺400+" },
+        { ad: "Augenbrauen", fiyat: "₺300+" },
+        { ad: "Waxing", fiyat: "₺150+" }
+      ]
+    },
+    {
+      baslik: "Farbe & Behandlung",
+      liste: [
+        { ad: "Haarfärbung", fiyat: "₺800+" },
+        { ad: "Platin / Grau", fiyat: "₺1500+" },
+        { ad: "Dauerwelle / Glättung", fiyat: "₺1200+" },
+        { ad: "Keratin / Botox", fiyat: "₺1000+" }
+      ]
+    }
+  ],
+
+  agda: {
+    baslik: "Waxing Dienstleistungen",
+    liste: [
+      { ad: "Achseln", fiyat: "₺400+" },
+      { ad: "Halbes Bein", fiyat: "₺500+" },
+      { ad: "Ganzes Bein", fiyat: "₺800+" },
+      { ad: "Arm", fiyat: "₺600+" },
+      { ad: "Bikini", fiyat: "₺800+" },
+      { ad: "Rücken", fiyat: "₺600+" }
+    ]
+  },
+
+  not: "* Preise können je nach Haarlänge und Behandlung variieren"
+},
   // 🔹 FOOTER
   footer: {
     aciklama: "Erneuere deinen Stil mit BY Willy Belek.",

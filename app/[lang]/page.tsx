@@ -7,7 +7,7 @@ import { siteData as tr } from "@/data/tr"
 import { siteData as en } from "@/data/en"
 import { siteData as de } from "@/data/de"
 import { siteData as ru } from "@/data/ru"
-
+import Image from "next/image"
 export default function Home({ params }: { params: { lang: string } }) {
 
   const theme = themes.dovmeci
@@ -143,6 +143,13 @@ style={{
       {item.label}
     </a>
   ))}
+  <a
+  href="#fiyatlar"
+  style={{ color: theme.text }}
+  className="hover:opacity-70 transition"
+>
+  Fiyatlar
+</a>
 </nav>
 
 {/* ACTIONS */}
@@ -218,10 +225,14 @@ style={{
 {/* HERO */}
 <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
 
-  <img
-    src="/salon1.jpg"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+ <Image
+  src="/salon1.jpg"
+  alt="salon"
+  fill
+  priority
+  quality={70}
+  className="object-cover"
+/>
 
   <div className="absolute inset-0 bg-black/60" />
 
@@ -301,8 +312,73 @@ style={{
 
 </section>
 
+<div className="max-w-4xl mx-auto flex flex-col gap-6">
 
+  {/* 📍 HARİTA */}
+  <div className="w-full h-[240px] md:h-[320px] rounded-2xl overflow-hidden">
+    <iframe
+      src={siteData.iletisim.haritaEmbed}
+      className="w-full h-full border-0"
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  </div>
 
+  {/* BUTON */}
+  <a
+    href={siteData.iletisim.adres}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full flex items-center justify-center py-3 rounded-xl text-sm font-semibold shadow-lg hover:scale-105 active:scale-95 transition"
+    style={{
+      background: theme.primary,
+      color: "#fff"
+    }}
+  >
+    📍 Konuma Git
+  </a>
+
+  {/* BAŞLIK */}
+  <div className="text-center">
+    <h2 className="text-xl md:text-2xl font-bold mb-2">
+      {siteData.genel.isim}
+    </h2>
+
+    <p className="text-sm md:text-base opacity-80 leading-relaxed max-w-md mx-auto">
+      {siteData.genel.konumAciklama}
+    </p>
+  </div>
+
+  {/* OTEL KUTUSU */}
+  <div className="relative overflow-hidden rounded-2xl p-4 border border-white/10 bg-white/5 backdrop-blur-md">
+
+    {/* PARLAYAN BORDER */}
+    <div className="absolute inset-0 rounded-2xl pointer-events-none border border-white/20 animate-pulse" />
+
+    {/* BAŞLIK */}
+    <div className="text-center text-xs mb-3 opacity-70">
+      Yakındaki Oteller
+    </div>
+
+    {/* KAYAN LİSTE */}
+    <motion.div
+      className="flex gap-4 whitespace-nowrap"
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+    >
+      {[...siteData.yakinOteller, ...siteData.yakinOteller].map((otel, i) => (
+        <div
+          key={i}
+          className="px-4 py-2 rounded-xl text-sm font-semibold bg-white/10 border border-white/10 shadow-md"
+        >
+          ✦ {otel}
+        </div>
+      ))}
+    </motion.div>
+
+  </div>
+
+</div>
 {/* STATS */}
 <section className="mt-8 px-4 md:px-6 relative z-40 reveal">
   <div className="max-w-7xl mx-auto">
@@ -441,7 +517,116 @@ style={{
 
   </div>
 </section>
+<section id="fiyatlar" className="py-24 px-4 md:px-6">
 
+  <div className="max-w-5xl mx-auto">
+
+    {(() => {
+      const fiyat = siteData.fiyatlar
+
+      return (
+        <>
+          {/* BAŞLIK */}
+          <div className="text-center mb-14 md:mb-16">
+            <h2 className="heading text-3xl md:text-4xl font-bold mb-3">
+              {fiyat.baslik}
+            </h2>
+
+            <div className="mx-auto w-16 md:w-20 h-[3px] bg-gradient-to-r from-blue-500 via-white to-red-500 mb-4" />
+
+            <p className="text-sm md:text-base opacity-70 max-w-md mx-auto">
+              {fiyat.aciklama}
+            </p>
+          </div>
+
+          {/* ANA KARTLAR */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+
+            {[fiyat.erkek, fiyat.kadin].map((kategori, i) => (
+              <div key={i} className="cardPro">
+                
+                <h3 className="text-lg md:text-xl font-semibold mb-5">
+                  {kategori.baslik}
+                </h3>
+
+                <div className="flex flex-col">
+                  {kategori.liste.map((item: any, j: number) => (
+                    <div key={j} className="rowPro">
+
+                      {/* SOL */}
+                      <div className="flex flex-col">
+                        <span className="text-sm md:text-base font-medium">
+                          {item.ad}
+                        </span>
+                        <span className="text-xs opacity-50">
+                          {fiyat.aciklama}
+                        </span>
+                      </div>
+
+                      {/* SAĞ */}
+                      <div className="priceTag">
+                        {item.fiyat}
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+          {/* DETAY */}
+          <div className="mt-14 md:mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
+
+            {fiyat.detay.map((blok: any, i: number) => (
+              <div key={i} className="miniCardPro">
+
+                <h4 className="text-sm md:text-base font-semibold mb-3">
+                  {blok.baslik}
+                </h4>
+
+                {blok.liste.map((item: any, j: number) => (
+                  <div key={j} className="row small">
+                    <span>{item.ad}</span>
+                    <span>{item.fiyat}</span>
+                  </div>
+                ))}
+
+              </div>
+            ))}
+
+          </div>
+
+          {/* AĞDA */}
+          <div className="mt-14 md:mt-16 cardPro">
+
+            <h3 className="text-lg md:text-xl font-semibold mb-4">
+              {fiyat.agda.baslik}
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {fiyat.agda.liste.map((item: any, i: number) => (
+                <div key={i} className="row small">
+                  <span>{item.ad}</span>
+                  <span>{item.fiyat}</span>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          {/* NOT */}
+          <p className="text-center text-xs mt-8 md:mt-10 opacity-60">
+            {fiyat.not}
+          </p>
+        </>
+      )
+    })()}
+
+  </div>
+</section>
       {/* İŞLETME SAHİBİ */}
     <section
   style={{ background: theme.bgSoft }}
@@ -970,44 +1155,11 @@ style={{
     </motion.div>
   )}
 
-  {showMapPreview && (
-    <motion.div
-      initial={{ opacity: 0, x: 80 }}
-      animate={{ opacity: 1, x: 0 }}
-      className="relative w-120 h-50 rounded-xl overflow-hidden shadow-2xl"
-    >
-      
-      <button
-        onClick={() => setShowMapPreview(false)}
-        className="absolute top-2 right-2 z-10 bg-black/60 text-white w-6 h-6 rounded-full text-xs"
-      >
-        ✕
-      </button>
-
-      <img
-        src={siteData.hero.konumGorsel}
-        className="w-full h-full object-cover"
-      />
-
-      <a
-        href={siteData.iletisim.adres}
-        target="_blank"
-        className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-lg"
-        style={{
-          background: theme.primary,
-          color: "#fff"
-        }}
-      >
-        Konuma Git
-      </a>
-
-    </motion.div>
-  )}
-
   <a
     href={siteData.iletisim.adres}
     target="_blank"
-    className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition"
+    rel="noopener noreferrer"
+    className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition active:scale-95"
     style={{ background: theme.primary, color: "#fff" }}
   >
     📍
