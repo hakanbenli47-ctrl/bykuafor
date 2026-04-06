@@ -17,85 +17,88 @@ export const siteData = {
 
   // 🔹 HERO
 hero: {
-  buton1: "Hemen Ara",
-  buton2: "WhatsApp",
+buton1: "Hemen Ara",
+buton2: "WhatsApp",
 
-  slider: [
-    {
-      type: "image",
-      src: "/salon1.jpg",
-      baslik: "BY WILLY BELEK KUAFÖR",
-      aciklama: "Profesyonel dokunuş, net sonuç"
-    },
-    {
-      type: "image",
-      src: "/salon2.jpg",
-      baslik: "Tarzını Yenile",
-      aciklama: "Modern kesim ve bakım"
-    },
-    {
-      type: "video",
-      src: "/video1.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-     {
-      type: "video",
-      src: "/video3.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-     {
-      type: "video",
-      src: "/video4.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-     {
-      type: "video",
-      src: "/video5.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-     {
-      type: "video",
-      src: "/video6.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-     {
-      type: "video",
-      src: "/video7.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-       {
-      type: "video",
-      src: "/video8.mp4",
-      baslik: "Gerçek İşçilik",
-      aciklama: "İşin ustası fark yaratır"
-    },
-    {
-      type: "image",
-      src: "/salon3.jpg",
-      baslik: "Premium Deneyim",
-      aciklama: "Konfor + kalite"
-    },
-      {
-      type: "image",
-      src: "/salon4.jpg",
-      baslik: "Premium Deneyim",
-      aciklama: "Konfor + kalite"
-    },
-
-    {
-      type: "video",
-      src: "/video2.mp4",
-      baslik: "Sonuç Konuşur",
-      aciklama: "İlk seansta farkı gör"
-    }
-  ],
+slider: [
+{
+type: "image",
+src: "/salon1.jpg",
+baslik: "BY WILLY BELEK KUAFÖR",
+aciklama: "Profesyonel dokunuş, net sonuç"
 },
+{
+type: "image",
+src: "/salon2.jpg",
+baslik: "Tarzını Yenile",
+aciklama: "Modern kesim ve bakım"
+},
+{
+type: "video",
+src: "/video1.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video3.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video4.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video5.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video6.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video7.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "video",
+src: "/video8.mp4",
+baslik: "Gerçek İşçilik",
+aciklama: "İşin ustası fark yaratır"
+},
+{
+type: "image",
+src: "/salon3.jpg",
+baslik: "Premium Deneyim",
+aciklama: "Konfor + kalite"
+},
+{
+type: "image",
+src: "/salon4.jpg",
+baslik: "Premium Deneyim",
+aciklama: "Konfor + kalite"
+},
+{
+type: "video",
+src: "/video2.mp4",
+baslik: "Sonuç Konuşur",
+aciklama: "İlk seansta farkı gör"
+}
+],
+
+konumGorsel: "/konum.jpg"
+},
+
+  
   // 🔹 STATS
   stats: [
     {

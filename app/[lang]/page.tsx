@@ -16,6 +16,7 @@ const [activeVideo, setActiveVideo] = useState(0)
   const [scrolled, setScrolled] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
   const [showLang, setShowLang] = useState(false)
+  const [showMapPreview, setShowMapPreview] = useState(false)
   const lang = typeof window !== "undefined"
   ? window.location.pathname.split("/")[1]
   : "tr"
@@ -36,6 +37,13 @@ useEffect(() => {
   setTimeout(() => {
     setShowBubble(true)
   }, 3000)
+}, [])
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowMapPreview(true)
+  }, 3000)
+
+  return () => clearTimeout(timer)
 }, [])
   useEffect(() => {
     const handleScroll = () => {
@@ -947,6 +955,46 @@ style={{
     </a>
 
   </div>
+{/* KONUM */}
+
+<div className="flex items-center gap-2">
+
+{/* TEXT */}
+{showBubble && (
+<motion.div
+initial={{ opacity: 0, x: 30 }}
+animate={{ opacity: 1, x: [0, -6, 0], scale: [1, 1.05, 1] }}
+transition={{ duration: 1.5, repeat: Infinity }}
+className="bg-white text-black text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"
+>
+Konum
+</motion.div>
+)}
+
+{/* PREVIEW (3 sn sonra) */}
+{showMapPreview && (
+<motion.img
+src={siteData.hero.konumGorsel}
+initial={{ opacity: 0, x: 30 }}
+animate={{ opacity: 1 }}
+className="w-20 h-20 object-cover rounded-lg shadow-lg"
+/>
+)}
+
+{/* BUTON */}
+<a
+href={siteData.iletisim.adres}
+target="_blank"
+className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition"
+style={{ background: theme.primary, color: "#fff" }}
+
+>
+
+📍
+
+  </a>
+
+</div>
 
 </div>
     </main>
