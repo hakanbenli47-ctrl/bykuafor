@@ -3,13 +3,27 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { FaWhatsapp } from "react-icons/fa"
 import { themes } from "@/theme/themes"
-import { siteData } from "@/data/site"
-export default function Home() {
-const theme = themes.dovmeci
+import { siteData as tr } from "@/data/tr"
+import { siteData as en } from "@/data/en"
+import { siteData as de } from "@/data/de"
+import { siteData as ru } from "@/data/ru"
+
+export default function Home({ params }: { params: { lang: string } }) {
+
+  const theme = themes.dovmeci
 
   const [scrolled, setScrolled] = useState(false)
-const [showBubble, setShowBubble] = useState(false)
+  const [showBubble, setShowBubble] = useState(false)
 
+  const lang = params.lang
+
+type Lang = "tr" | "en" | "de" | "ru"
+
+const dataMap: Record<Lang, typeof tr> = { tr, en, de, ru }
+
+const currentLang = (["tr","en","de","ru"].includes(lang) ? lang : "tr") as Lang
+
+const siteData = dataMap[currentLang]
 useEffect(() => {
   setTimeout(() => {
     setShowBubble(true)
@@ -79,7 +93,7 @@ useEffect(() => {
      {siteData.menu.map((item: any, i: number) => (
         <a
           key={i}
-          href={item.link}
+          href={`/${currentLang}${item.link}`}
           className="hover:opacity-70 transition"
         >
           {item.label}
@@ -89,7 +103,25 @@ useEffect(() => {
 
     {/* ACTIONS */}
     <div className="flex items-center gap-3">
+<div className="flex gap-2 text-xs">
 
+  <a href="/tr" className={currentLang === "tr" ? "font-bold" : "opacity-60"}>
+    TR
+  </a>
+
+  <a href="/en" className={currentLang === "en" ? "font-bold" : "opacity-60"}>
+    EN
+  </a>
+
+  <a href="/de" className={currentLang === "de" ? "font-bold" : "opacity-60"}>
+    DE
+  </a>
+
+  <a href="/ru" className={currentLang === "ru" ? "font-bold" : "opacity-60"}>
+    RU
+  </a>
+
+</div>
       {/* WHATSAPP */}
      <a
   href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
@@ -776,7 +808,7 @@ useEffect(() => {
         {siteData.menu.map((item: any, i: number) => (
           <a
             key={i}
-            href={item.link}
+           href={`/${currentLang}${item.link}`}
             style={{ color: theme.text }}
             className="hover:translate-x-1 transition duration-200"
           >
