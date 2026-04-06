@@ -959,39 +959,58 @@ style={{
 
 <div className="flex items-center gap-2">
 
-{/* TEXT */}
-{showBubble && (
-<motion.div
-initial={{ opacity: 0, x: 30 }}
-animate={{ opacity: 1, x: [0, -6, 0], scale: [1, 1.05, 1] }}
-transition={{ duration: 1.5, repeat: Infinity }}
-className="bg-white text-black text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"
->
-Konum
-</motion.div>
-)}
+  {showBubble && (
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: [0, -6, 0], scale: [1, 1.05, 1] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+      className="bg-white text-black text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"
+    >
+      Konum
+    </motion.div>
+  )}
 
-{/* PREVIEW (3 sn sonra) */}
-{showMapPreview && (
-<motion.img
-src={siteData.hero.konumGorsel}
-initial={{ opacity: 0, x: 30 }}
-animate={{ opacity: 1 }}
-className="w-20 h-20 object-cover rounded-lg shadow-lg"
-/>
-)}
+  {showMapPreview && (
+    <motion.div
+      initial={{ opacity: 0, x: 80 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="relative w-120 h-50 rounded-xl overflow-hidden shadow-2xl"
+    >
+      
+      <button
+        onClick={() => setShowMapPreview(false)}
+        className="absolute top-2 right-2 z-10 bg-black/60 text-white w-6 h-6 rounded-full text-xs"
+      >
+        ✕
+      </button>
 
-{/* BUTON */}
-<a
-href={siteData.iletisim.adres}
-target="_blank"
-className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition"
-style={{ background: theme.primary, color: "#fff" }}
+      <img
+        src={siteData.hero.konumGorsel}
+        className="w-full h-full object-cover"
+      />
 
->
+      <a
+        href={siteData.iletisim.adres}
+        target="_blank"
+        className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-lg"
+        style={{
+          background: theme.primary,
+          color: "#fff"
+        }}
+      >
+        Konuma Git
+      </a>
 
-📍
+    </motion.div>
+  )}
 
+  <a
+    href={siteData.iletisim.adres}
+    target="_blank"
+    className="w-14 h-14 flex items-center justify-center rounded-full shadow-xl hover:scale-110 transition"
+    style={{ background: theme.primary, color: "#fff" }}
+  >
+    📍
   </a>
 
 </div>
