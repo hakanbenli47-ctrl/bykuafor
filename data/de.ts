@@ -143,4 +143,4 @@ export const siteData = {
     copyright: "© 2026 BY Willy Belek"
   }
 
-}
+}   
