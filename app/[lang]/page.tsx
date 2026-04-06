@@ -493,7 +493,7 @@ style={{
           key={i}
           whileHover={{ y: -8 }}
           onClick={() => {
-            const el = document.getElementById("calismalar")
+            const el = document.getElementById("galeri")
             if (el) el.scrollIntoView({ behavior: "smooth" })
           }}
           className="group relative p-8 rounded-3xl transition duration-300 cursor-pointer overflow-hidden"
