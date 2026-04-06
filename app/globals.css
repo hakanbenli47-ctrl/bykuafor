@@ -20,6 +20,30 @@ html {
     --foreground: #ededed;
   }
 }
+/* 🔥 BARBER STRIPE */
+.barberStripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #1d4ed8 0px,
+    #1d4ed8 10px,
+    #ffffff 10px,
+    #ffffff 20px,
+    #dc2626 20px,
+    #dc2626 30px
+  );
+
+  animation: stripeMove 3s linear infinite;
+}
+
+/* ANİMASYON */
+@keyframes stripeMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-60px);
+  }
+}
 /* 🔥 AKAN BORDER */
 @keyframes borderFlow {
   0% { background-position: 0% }

@@ -492,13 +492,22 @@ style={{
         <motion.div
           key={i}
           whileHover={{ y: -8 }}
-          className="group relative p-8 rounded-3xl transition duration-300"
+          onClick={() => {
+            const el = document.getElementById("calismalar")
+            if (el) el.scrollIntoView({ behavior: "smooth" })
+          }}
+          className="group relative p-8 rounded-3xl transition duration-300 cursor-pointer overflow-hidden"
           style={{
             background: theme.card,
             border: `1px solid ${theme.primary}20`,
             boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
           }}
         >
+
+          {/* 🔥 BARBER STRIPE */}
+          <div className="absolute top-0 left-0 w-full h-[3px] overflow-hidden rounded-t-3xl">
+            <div className="barberStripe w-[200%] h-full opacity-80 group-hover:opacity-100" />
+          </div>
 
           {/* glow hover */}
           <div
