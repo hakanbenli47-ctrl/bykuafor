@@ -15,7 +15,10 @@ export default function Home({ params }: { params: { lang: string } }) {
   const [scrolled, setScrolled] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
 
-  const lang = params.lang
+  const lang = typeof window !== "undefined"
+  ? window.location.pathname.split("/")[1]
+  : "tr"
+  
 
 type Lang = "tr" | "en" | "de" | "ru"
 
