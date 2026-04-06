@@ -159,14 +159,20 @@ style={{
 
   <a
     href="#fiyatlar"
-    className="text-xs px-3 py-2 rounded-lg border"
+    className="text-sm px-3 py-2 rounded-lg border font-semibold"
     style={{ borderColor: theme.primary, color: theme.text }}
   >
     ₺
   </a>
 
-  {/* 🔥 ALT YAZI */}
-  <span className="fiyatBlink text-[10px] mt-1">
+  {/* 🔥 GÜÇLÜ YAZI */}
+  <span
+    className="fiyatCTA mt-1 px-2 py-[2px] rounded-full text-[11px] font-semibold"
+    style={{
+      background: theme.primary,
+      color: "#fff"
+    }}
+  >
     Fiyatlar
   </span>
 
