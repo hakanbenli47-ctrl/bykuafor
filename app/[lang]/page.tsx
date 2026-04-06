@@ -339,11 +339,11 @@ style={{
   {/* 📍 HARİTA */}
   <div className="w-full h-[240px] md:h-[320px] rounded-2xl overflow-hidden">
     <iframe
-      src={siteData.iletisim.haritaEmbed}
-      className="w-full h-full border-0"
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    />
+  src={siteData.iletisim.haritaEmbed}
+  className="w-full h-full border-0"
+  loading="eager"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
   </div>
 
   {/* BUTON */}
