@@ -92,7 +92,7 @@ useEffect(() => {
 
       {/* WHATSAPP */}
      <a
-  href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum}`}
+  href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
   style={{
     background: theme.primary,
     color: "#fff",
@@ -200,7 +200,7 @@ useEffect(() => {
         </a>
 
         <a
-          href={`https://wa.me/${siteData.iletisim.whatsapp}`}
+         href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
           style={{
             border: `1px solid ${theme.primary}`,
             color: theme.primary
@@ -806,7 +806,7 @@ useEffect(() => {
         </a>
 
         <a
-          href={`https://wa.me/${siteData.iletisim.whatsapp}`}
+          href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
           style={{ color: theme.text }}
           className="hover:opacity-70 transition"
         >
