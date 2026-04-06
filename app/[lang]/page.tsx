@@ -154,7 +154,14 @@ style={{
 
 {/* ACTIONS */}
 <div className="flex items-center gap-2 md:gap-3">
-
+{/* 📊 FİYATLAR (MOBİL) */}
+<a
+  href="#fiyatlar"
+  className="md:hidden text-xs px-3 py-2 rounded-lg border"
+  style={{ borderColor: theme.primary, color: theme.text }}
+>
+  ₺
+</a>
   {/* 🌐 DİL (DESKTOP) */}
   <div className="hidden md:flex gap-1 md:gap-2 text-[10px] md:text-xs">
     <a href="/tr" style={{ color: currentLang === "tr" ? theme.primary : theme.text }} className={`${currentLang === "tr" ? "font-bold" : "opacity-60 hover:opacity-100"}`}>TR</a>
