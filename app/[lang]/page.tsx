@@ -105,19 +105,43 @@ useEffect(() => {
     <div className="flex items-center gap-3">
 <div className="flex gap-2 text-xs">
 
-  <a href="/tr" className={currentLang === "tr" ? "font-bold" : "opacity-60"}>
+  <a
+    href="/tr"
+    style={{ color: currentLang === "tr" ? theme.primary : theme.text }}
+    className={`px-2 py-1 rounded-md transition ${
+      currentLang === "tr" ? "font-bold" : "opacity-60 hover:opacity-100"
+    }`}
+  >
     TR
   </a>
 
-  <a href="/en" className={currentLang === "en" ? "font-bold" : "opacity-60"}>
+  <a
+    href="/en"
+    style={{ color: currentLang === "en" ? theme.primary : theme.text }}
+    className={`px-2 py-1 rounded-md transition ${
+      currentLang === "en" ? "font-bold" : "opacity-60 hover:opacity-100"
+    }`}
+  >
     EN
   </a>
 
-  <a href="/de" className={currentLang === "de" ? "font-bold" : "opacity-60"}>
+  <a
+    href="/de"
+    style={{ color: currentLang === "de" ? theme.primary : theme.text }}
+    className={`px-2 py-1 rounded-md transition ${
+      currentLang === "de" ? "font-bold" : "opacity-60 hover:opacity-100"
+    }`}
+  >
     DE
   </a>
 
-  <a href="/ru" className={currentLang === "ru" ? "font-bold" : "opacity-60"}>
+  <a
+    href="/ru"
+    style={{ color: currentLang === "ru" ? theme.primary : theme.text }}
+    className={`px-2 py-1 rounded-md transition ${
+      currentLang === "ru" ? "font-bold" : "opacity-60 hover:opacity-100"
+    }`}
+  >
     RU
   </a>
 
