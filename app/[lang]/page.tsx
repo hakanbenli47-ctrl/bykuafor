@@ -259,21 +259,15 @@ style={{ color: theme.textSoft }}
 {/* SOL - GÖRSEL */}
 <div className="relative h-[220px] md:h-[450px] overflow-hidden">
 
-  {imageSlides.map((item: any, i: number) => (
-    <div
-      key={i}
-      className={`absolute inset-0 transition-opacity duration-700 ${
-        i === activeImage ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      <img
-        src={item.src}
-        className="w-full h-full object-cover"
-      />
-    </div>
-  ))}
+{imageSlides.length > 0 && ( <img
+   key={imageSlides[activeImage].src}
+   src={imageSlides[activeImage].src}
+   className="w-full h-full object-cover transition-all duration-700"
+ />
+)}
 
 </div>
+
 
 {/* SAĞ - VİDEO */}
 <div className="relative h-[220px] md:h-[450px] overflow-hidden bg-black">
