@@ -16,14 +16,46 @@ export const siteData = {
   ],
 
   // 🔹 HERO
-  hero: {
-    baslik: "BY WILLY BELEK FRISEUR",
-    aciklama: "Professionelle Pflege für dein Haar und ein neuer Stil",
-    vurgu: "Bereit für eine Veränderung?",
-    buton1: "Jetzt anrufen",
-    buton2: "WhatsApp",
-    arkaPlan: "/salon1.jpg"
-  },
+hero: {
+  buton1: "Hemen Ara",
+  buton2: "WhatsApp",
+
+  slider: [
+    {
+      type: "image",
+      src: "/salon1.jpg",
+      baslik: "BY WILLY BELEK KUAFÖR",
+      aciklama: "Profesyonel dokunuş, net sonuç"
+    },
+    {
+      type: "image",
+      src: "/salon2.jpg",
+      baslik: "Tarzını Yenile",
+      aciklama: "Modern kesim ve bakım"
+    },
+    {
+      type: "video",
+      src: "/video1.mp4",
+      baslik: "Gerçek İşçilik",
+      aciklama: "İşin ustası fark yaratır"
+    },
+    {
+      type: "image",
+      src: "/salon3.jpg",
+      baslik: "Premium Deneyim",
+      aciklama: "Konfor + kalite"
+    },
+    {
+      type: "video",
+      src: "/video2.mp4",
+      baslik: "Sonuç Konuşur",
+      aciklama: "İlk seansta farkı gör"
+    }
+  ],
+
+  konumGorsel: "/konum.jpg"
+},
+
 
   // 🔹 STATS
   stats: [

@@ -11,10 +11,11 @@ import { siteData as ru } from "@/data/ru"
 export default function Home({ params }: { params: { lang: string } }) {
 
   const theme = themes.dovmeci
-
+const [activeImage, setActiveImage] = useState(0)
+const [activeVideo, setActiveVideo] = useState(0)
   const [scrolled, setScrolled] = useState(false)
   const [showBubble, setShowBubble] = useState(false)
-
+  
   const lang = typeof window !== "undefined"
   ? window.location.pathname.split("/")[1]
   : "tr"
@@ -27,6 +28,10 @@ const dataMap: Record<Lang, typeof tr> = { tr, en, de, ru }
 const currentLang = (["tr","en","de","ru"].includes(lang) ? lang : "tr") as Lang
 
 const siteData = dataMap[currentLang]
+  const imageSlides = siteData.hero.slider.filter((item: any) => item.type === "image")
+const videoSlides = siteData.hero.slider.filter((item: any) => item.type === "video")
+
+
 useEffect(() => {
   setTimeout(() => {
     setShowBubble(true)
@@ -39,9 +44,31 @@ useEffect(() => {
 
     handleScroll()
     window.addEventListener("scroll", handleScroll)
+  
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+useEffect(() => {
+  if (!imageSlides.length) return
 
+  const interval = setInterval(() => {
+    setActiveImage((prev) =>
+      prev === imageSlides.length - 1 ? 0 : prev + 1
+    )
+  }, 3000)
+
+  return () => clearInterval(interval)
+}, [imageSlides])
+useEffect(() => {
+  if (!videoSlides.length) return
+
+  const interval = setInterval(() => {
+    setActiveVideo((prev) =>
+      prev === videoSlides.length - 1 ? 0 : prev + 1
+    )
+  }, 6000)
+
+  return () => clearInterval(interval)
+}, [videoSlides])
 useEffect(() => {
   setTimeout(() => {
     const elements = document.querySelectorAll(".reveal")
@@ -60,7 +87,6 @@ useEffect(() => {
     elements.forEach((el) => observer.observe(el))
   }, 100)
 }, [])
-
   return (
 <main style={{ background: theme.bg, color: theme.text }} className="overflow-hidden page-fade">
 
@@ -185,150 +211,104 @@ style={{ color: theme.textSoft }}
 </header>
 
 {/* HERO */}
-<section className="relative min-h-screen flex items-center px-4 md:px-6 overflow-hidden">
+<section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
 
-  {/* BACKGROUND */}
-  <div className="absolute inset-0 z-0">
-    <motion.img
-      src={siteData.hero.arkaPlan}
-      initial={{ scale: 1 }}
-      animate={{ scale: 1.1 }}
-      transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
-      className="w-full h-full object-cover opacity-80"
-    />
+  <img
+    src="/salon1.jpg"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
 
-    <div
-      style={{
-        background: `linear-gradient(to bottom, transparent, ${theme.bgSoft})`
-      }}
-      className="absolute inset-0"
-    />
+  <div className="absolute inset-0 bg-black/60" />
+
+  <div className="relative z-10 text-center px-4 max-w-xl">
+
+    <h1 className="text-3xl sm:text-4xl font-bold text-white">
+      {siteData.hero.slider[0]?.baslik}
+    </h1>
+
+    <p className="mt-4 text-sm text-white/80">
+      {siteData.hero.slider[0]?.aciklama}
+    </p>
+
+    <div className="mt-6 flex flex-col gap-3">
+
+      <a
+        href={`tel:${siteData.iletisim.telefon}`}
+        className="py-3 rounded-xl text-white font-semibold"
+        style={{ background: theme.primary }}
+      >
+        {siteData.hero.buton1}
+      </a>
+
+      <a
+        href={`https://wa.me/${siteData.iletisim.whatsapp}`}
+        className="py-3 rounded-xl border text-white"
+      >
+        {siteData.hero.buton2}
+      </a>
+
+    </div>
+
   </div>
 
-  {/* CONTENT */}
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    className="relative z-30 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center"
-  >
+</section>
+<section className="w-full">
 
-    {/* 🔴 SOL TARAF */}
-    <div className="relative text-center md:text-left">
+  <div className="grid grid-cols-2 w-full">
 
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        style={{
-          color: theme.text,
-          fontFamily: "'Playfair Display', serif"
-        }}
-        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
-      >
-        {siteData.hero.baslik}
-      </motion.h1>
+```
+{/* SOL - GÖRSEL */}
+<div className="relative h-[220px] md:h-[450px] overflow-hidden">
 
-      {/* GLOW FIX (mobilde küçültüldü ve ortalandı) */}
-      <div
-        style={{ background: theme.primary + "40" }}
-        className="absolute blur-[80px] md:blur-[120px] w-[250px] md:w-[400px] h-[150px] md:h-[200px] left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 top-10 rounded-full"
-      />
-
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        style={{ color: theme.text + "cc" }}
-        className="mt-5 md:mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mx-auto md:mx-0"
-      >
-        {siteData.hero.aciklama}<br />
-        <span style={{ color: theme.primary }}>
-          {siteData.hero.vurgu}
-        </span>
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-      >
-
-        <a
-          href={`tel:${siteData.iletisim.telefon}`}
-          style={{ background: theme.primary, color: "#fff" }}
-          className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold shadow-lg hover:scale-105 transition text-center"
-        >
-          {siteData.hero.buton1}
-        </a>
-
-        <a
-         href={`https://wa.me/${siteData.iletisim.whatsapp}?text=Merhaba%20web%20sitenizden%20ulaşıyorum%20randevu%20almak%20istiyorum`}
-          style={{
-            border: `1px solid ${theme.primary}`,
-            color: theme.primary
-          }}
-          className="px-6 py-3 md:px-8 md:py-4 rounded-xl font-semibold hover:scale-105 transition text-center"
-        >
-          {siteData.hero.buton2}
-        </a>
-
-      </motion.div>
-
-    </div>
-
-    {/* 🔵 SAĞ TARAF */}
-    <div className="relative hidden md:block">
-
+  {imageSlides.map((item: any, i: number) => (
+    <div
+      key={i}
+      className={`absolute inset-0 transition-opacity duration-700 ${
+        i === activeImage ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <img
-        src={siteData.hero.arkaPlan}
-        className="rounded-2xl shadow-2xl object-cover w-full h-[400px] md:h-[500px]"
+        src={item.src}
+        className="w-full h-full object-cover"
       />
-
-      <div
-        style={{ background: theme.glow }}
-        className="absolute -bottom-10 -right-10 w-[150px] md:w-[200px] h-[150px] md:h-[200px] blur-[100px] md:blur-[120px] rounded-full"
-      />
-
     </div>
+  ))}
 
-  </motion.div>
+</div>
 
-  {/* AŞAĞI OK */}
-  <motion.div
-    animate={{ y: [0, 10, 0] }}
-    transition={{ repeat: Infinity, duration: 1.2 }}
-    className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30"
-  >
-    <a href="#hizmetler" className="flex flex-col items-center group">
+{/* SAĞ - VİDEO */}
+<div className="relative h-[220px] md:h-[450px] overflow-hidden bg-black">
 
-      <span
-        style={{ color: theme.text }}
-        className="text-[10px] md:text-xs tracking-widest mb-2 opacity-70"
-      >
-        Kaydır
-      </span>
+  {videoSlides.map((item: any, i: number) => (
+    <div
+      key={i}
+      className={`absolute inset-0 transition-opacity duration-700 ${
+        i === activeVideo ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <video
+        src={item.src}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
+      />
+    </div>
+  ))}
 
-      <svg
-        style={{ color: theme.primary }}
-        className="w-6 h-6 md:w-8 md:h-8"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path d="M19 9l-7 7-7-7" />
-      </svg>
+</div>
+```
 
-    </a>
-  </motion.div>
+  </div>
 
 </section>
 
+
+
 {/* STATS */}
 <section
-  className="-mt-24 px-6 relative z-40 reveal"
+  className="mt-10 px-6 relative z-40 reveal"
 >
   <div className="max-w-7xl mx-auto">
 
