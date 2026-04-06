@@ -296,67 +296,66 @@ style={{
 
 
 {/* STATS */}
-<section
-  className="mt-10 px-6 relative z-40 reveal"
->
+<section className="mt-8 px-4 md:px-6 relative z-40 reveal">
   <div className="max-w-7xl mx-auto">
 
+<div
+  style={{
+    background: theme.bg,
+    boxShadow: "0 30px 80px rgba(0,0,0,0.1)",
+    border: `1px solid ${theme.primary}15`
+  }}
+  className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-2xl p-4 md:p-10 backdrop-blur-xl"
+>
+
+  {siteData.stats.map((item: any, i: number) => (
     <div
+      key={i}
+      className="relative p-3 md:p-6 rounded-xl md:rounded-2xl transition duration-300 hover:scale-105 group"
       style={{
-        background: theme.bg,
-        boxShadow: "0 40px 120px rgba(0,0,0,0.1)",
-        border: `1px solid ${theme.primary}15`
+        background: "rgba(255,255,255,0.6)",
+        border: `1px solid ${theme.primary}20`,
+        boxShadow: "0 6px 20px rgba(0,0,0,0.06)"
       }}
-      className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-3xl p-6 md:p-10 backdrop-blur-xl"
     >
 
-      {siteData.stats.map((item: any, i: number) => (
-        <div
-          key={i}
-          className="relative p-6 rounded-2xl transition duration-300 hover:scale-105 hover:-translate-y-1 group"
-          style={{
-            background: "rgba(255,255,255,0.6)",
-            border: `1px solid ${theme.primary}20`,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
-          }}
-        >
+      {/* glow */}
+      <div
+        className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
+        style={{
+          background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
+        }}
+      />
 
-          {/* glow hover */}
-          <div
-            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
-            style={{
-              background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
-            }}
-          />
+      <h3
+        style={{ color: theme.primary }}
+        className="text-xl md:text-4xl font-bold mb-1 relative z-10"
+      >
+        {item.deger}
+      </h3>
 
-          <h3
-            style={{ color: theme.primary }}
-            className="text-3xl md:text-4xl font-bold mb-2 relative z-10"
-          >
-            {item.deger}
-          </h3>
+      <p
+        className="text-xs md:text-base mb-1 relative z-10"
+        style={{ color: theme.text }}
+      >
+        {item.label}
+      </p>
 
-          <p
-            className="text-sm md:text-base mb-1 relative z-10"
-            style={{ color: theme.text }}
-          >
-            {item.label}
-          </p>
-
-          <p
-            className="text-xs leading-relaxed relative z-10"
-            style={{ color: theme.text + "99" }}
-          >
-            {item.aciklama}
-          </p>
-
-        </div>
-      ))}
+      <p
+        className="text-[10px] md:text-xs leading-snug relative z-10"
+        style={{ color: theme.text + "99" }}
+      >
+        {item.aciklama}
+      </p>
 
     </div>
+  ))}
+
+</div>
 
   </div>
 </section>
+
 {/* SERVICES */}
 <section id="hizmetler" className="py-32 px-6 reveal">
   <div className="max-w-7xl mx-auto">
