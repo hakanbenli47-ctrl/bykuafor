@@ -26,7 +26,7 @@ slider: [
 type: "image",
 src: "/salon1.jpg",
 baslik: "BY WILLY BELEK KUAFÖR",
-aciklama: "Profesyonel dokunuş, net sonuç"
+aciklama: "Professional touch, precise results"
 },
 {
 type: "image",
