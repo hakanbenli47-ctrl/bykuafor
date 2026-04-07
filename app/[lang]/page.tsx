@@ -402,99 +402,113 @@ style={{
 
 </div>
 {/* STATS */}
+<>
+{/* ===================== STATS ===================== */}
 <section className="mt-8 px-4 md:px-6 relative z-40 reveal">
   <div className="max-w-7xl mx-auto">
 
-<div
-  style={{
-    background: theme.bg,
-    boxShadow: "0 30px 80px rgba(0,0,0,0.1)",
-    border: `1px solid ${theme.primary}15`
-  }}
-  className="relative grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-2xl p-4 md:p-10 backdrop-blur-xl overflow-hidden"
->
-
-  {/* 🔥 BARBER STRIPE */}
-  <div className="absolute top-0 left-0 w-full h-[4px] overflow-hidden">
-    <div className="barberStripe w-[200%] h-full opacity-80" />
-  </div>
-
-  {siteData.stats.map((item: any, i: number) => (
     <div
-      key={i}
-      className="relative p-3 md:p-6 rounded-xl md:rounded-2xl transition duration-300 hover:scale-105 group"
       style={{
-        background: "rgba(255,255,255,0.6)",
-        border: `1px solid ${theme.primary}20`,
-        boxShadow: "0 6px 20px rgba(0,0,0,0.06)"
+        background: "rgba(255,255,255,0.85)",
+        backdropFilter: "blur(10px)",
+        boxShadow: "0 30px 80px rgba(0,0,0,0.15)",
+        border: `1px solid ${theme.primary}20`
       }}
+      className="relative grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-2xl p-4 md:p-10 overflow-hidden"
     >
 
-      {/* glow */}
-      <div
-        className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
-        style={{
-          background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
-        }}
-      />
+      {/* 🔥 STRIPE (SABİT + NET) */}
+      <div className="absolute top-0 left-0 w-full h-[6px] overflow-hidden">
+        <div className="barberStripe w-full h-full" />
+      </div>
 
-      <h3
-        style={{ color: theme.primary }}
-        className="text-xl md:text-4xl font-bold mb-1 relative z-10"
-      >
-        {item.deger}
-      </h3>
+      {siteData.stats.map((item: any, i: number) => (
+        <div
+          key={i}
+          className="relative p-3 md:p-6 rounded-xl md:rounded-2xl transition duration-300 hover:scale-105 group"
+          style={{
+            background: "rgba(255,255,255,0.9)",
+            border: `1px solid ${theme.primary}15`,
+            boxShadow: "0 10px 25px rgba(0,0,0,0.08)"
+          }}
+        >
 
-      <p
-        className="text-xs md:text-base mb-1 relative z-10"
-        style={{ color: theme.text }}
-      >
-        {item.label}
-      </p>
+          {/* glow */}
+          <div
+            className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
+            style={{
+              background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
+            }}
+          />
 
-      <p
-        className="text-[10px] md:text-xs leading-snug relative z-10"
-        style={{ color: theme.text + "99" }}
-      >
-        {item.aciklama}
-      </p>
+          <h3
+            style={{ color: theme.primary }}
+            className="text-xl md:text-4xl font-bold mb-1 relative z-10"
+          >
+            {item.deger}
+          </h3>
+
+          <p
+            className="text-xs md:text-base mb-1 relative z-10"
+            style={{ color: theme.text }}
+          >
+            {item.label}
+          </p>
+
+          <p
+            className="text-[10px] md:text-xs leading-snug relative z-10"
+            style={{ color: theme.text + "99" }}
+          >
+            {item.aciklama}
+          </p>
+
+        </div>
+      ))}
 
     </div>
-  ))}
-
-</div>
 
   </div>
 </section>
 
-{/* SERVICES */}
+
+{/* ===================== HİZMETLER ===================== */}
 <section
   id="hizmetler"
   className="relative py-24 md:py-32 px-4 md:px-6 reveal overflow-hidden"
 >
 
-  {/* 🔥 ARKA PLAN */}
-  <div className="absolute inset-0 opacity-[0.025] pointer-events-none">
-    <div className="barberStripe w-[200%] h-full" />
+  {/* 🔥 STRIPE ARKA PLAN */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="barberStripe w-full h-full" />
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto">
 
-    {/* BAŞLIK */}
-    <div className="text-center mb-12 md:mb-16">
-      <h2
-        style={{ color: theme.primary }}
-        className="heading text-2xl md:text-5xl font-bold tracking-tight"
+    {/* 🔥 BAŞLIK BLOK (GERÇEK ORTA) */}
+    <div className="flex justify-center mb-12 md:mb-16">
+      <div
+        className="text-center px-6 py-5 rounded-2xl backdrop-blur-md w-full max-w-xl"
+        style={{
+          background: "rgba(0,0,0,0.55)"
+        }}
       >
-        {siteData.hizmetlerMeta.baslik}
-      </h2>
+        <h2
+          style={{
+            color: "#ffffff",
+            textShadow: "0 4px 20px rgba(0,0,0,0.7)"
+          }}
+          className="heading text-2xl md:text-5xl font-bold tracking-tight"
+        >
+          {siteData.hizmetlerMeta.baslik}
+        </h2>
 
-      <p
-        style={{ color: theme.text + "99" }}
-        className="mt-3 md:mt-4 max-w-xl mx-auto text-sm md:text-base"
-      >
-        {siteData.hizmetlerMeta.aciklama}
-      </p>
+        <p
+          style={{ color: "rgba(255,255,255,0.9)" }}
+          className="mt-3 md:mt-4 text-sm md:text-base"
+        >
+          {siteData.hizmetlerMeta.aciklama}
+        </p>
+      </div>
     </div>
 
     {/* GRID */}
@@ -510,15 +524,16 @@ style={{
           }}
           className="group relative p-6 md:p-8 rounded-3xl transition duration-300 cursor-pointer overflow-hidden"
           style={{
-            background: theme.card,
+            background: "rgba(255,255,255,0.92)",
+            backdropFilter: "blur(6px)",
             border: `1px solid ${theme.primary}20`,
-            boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
+            boxShadow: "0 20px 60px rgba(0,0,0,0.2)"
           }}
         >
 
           {/* ÜST STRIPE */}
-          <div className="absolute top-0 left-0 w-full h-[3px] overflow-hidden rounded-t-3xl">
-            <div className="barberStripe w-[200%] h-full opacity-80 group-hover:opacity-100" />
+          <div className="absolute top-0 left-0 w-full h-[6px] overflow-hidden rounded-t-3xl">
+            <div className="barberStripe w-full h-full" />
           </div>
 
           {/* GLOW */}
@@ -531,7 +546,7 @@ style={{
 
           <div className="relative z-10">
 
-            {/* KATEGORİ LABEL */}
+            {/* KATEGORİ */}
             <div className="mb-3 text-xs opacity-60">
               {item.target === "erkek" ? "Erkek Hizmetleri" : "Kadın Hizmetleri"}
             </div>
@@ -567,16 +582,16 @@ style={{
 
   </div>
 </section>
+</>
 <section
   id="fiyatlar"
   className="relative py-24 px-4 md:px-6 overflow-hidden"
 >
 
-  {/* 🔥 SOFT STRIPE BACKGROUND (çok hafif) */}
-  <div className="absolute inset-0 opacity-[0.015] pointer-events-none">
-    <div className="barberStripe w-[200%] h-full" />
-  </div>
-
+  {/* 🔥 STRIPE ARKA PLAN */}
+ <div className="absolute inset-0 pointer-events-none">
+  <div className="barberStripe w-full h-full" />
+</div>
   <div className="relative z-10 max-w-5xl mx-auto">
 
     {(() => {
@@ -584,17 +599,29 @@ style={{
 
       return (
         <>
-          {/* BAŞLIK */}
-          <div className="text-center mb-14 md:mb-16">
-            <h2 className="heading text-3xl md:text-4xl font-bold mb-3">
-              {fiyat.baslik}
-            </h2>
 
-            <div className="mx-auto w-16 md:w-20 h-[3px] bg-gradient-to-r from-blue-500 via-white to-red-500 mb-4" />
+          {/* 🔥 BAŞLIK (ORTA + GLASS) */}
+          <div className="flex justify-center mb-14 md:mb-16">
+            <div
+              className="text-center px-6 py-5 rounded-2xl backdrop-blur-md w-full max-w-md"
+              style={{ background: "rgba(0,0,0,0.5)" }}
+            >
+              <h2
+                className="heading text-3xl md:text-4xl font-bold mb-3"
+                style={{
+                  color: "#fff",
+                  textShadow: "0 4px 20px rgba(0,0,0,0.7)"
+                }}
+              >
+                {fiyat.baslik}
+              </h2>
 
-            <p className="text-sm md:text-base opacity-70 max-w-md mx-auto">
-              {fiyat.aciklama}
-            </p>
+              <div className="mx-auto w-16 md:w-20 h-[3px] bg-gradient-to-r from-blue-500 via-white to-red-500 mb-4" />
+
+              <p className="text-sm md:text-base text-white/80">
+                {fiyat.aciklama}
+              </p>
+            </div>
           </div>
 
           {/* ANA KARTLAR */}
@@ -602,9 +629,18 @@ style={{
 
             {[fiyat.erkek, fiyat.kadin].map((kategori, i) => (
               
-              <div key={i} className="cardPro relative rounded-2xl">
-                
-                {/* 🔥 BORDER */}
+              <div
+                key={i}
+                className="relative rounded-2xl p-5 md:p-6 overflow-hidden"
+                style={{
+                  background: "rgba(255,255,255,0.92)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+                  border: `1px solid ${theme.primary}20`
+                }}
+              >
+
+                {/* BORDER */}
                 <div className="barberBorder absolute inset-0 rounded-2xl pointer-events-none" />
 
                 <div className="relative z-10">
@@ -617,7 +653,6 @@ style={{
                     {kategori.liste.map((item: any, j: number) => (
                       <div key={j} className="rowPro">
 
-                        {/* SOL */}
                         <div className="flex flex-col">
                           <span className="text-sm md:text-base font-medium">
                             {item.ad}
@@ -627,7 +662,6 @@ style={{
                           </span>
                         </div>
 
-                        {/* SAĞ */}
                         <div className="priceTag">
                           {item.fiyat}
                         </div>
@@ -648,9 +682,16 @@ style={{
 
             {fiyat.detay.map((blok: any, i: number) => (
               
-              <div key={i} className="miniCardPro relative rounded-xl">
+              <div
+                key={i}
+                className="relative rounded-xl p-4 overflow-hidden"
+                style={{
+                  background: "rgba(255,255,255,0.92)",
+                  backdropFilter: "blur(6px)",
+                  border: `1px solid ${theme.primary}15`
+                }}
+              >
 
-                {/* 🔥 BORDER */}
                 <div className="barberBorder absolute inset-0 rounded-xl pointer-events-none" />
 
                 <div className="relative z-10">
@@ -674,9 +715,16 @@ style={{
           </div>
 
           {/* AĞDA */}
-          <div className="mt-14 md:mt-16 cardPro relative rounded-2xl">
+          <div
+            className="mt-14 md:mt-16 relative rounded-2xl p-5 md:p-6 overflow-hidden"
+            style={{
+              background: "rgba(255,255,255,0.92)",
+              backdropFilter: "blur(8px)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+              border: `1px solid ${theme.primary}20`
+            }}
+          >
 
-            {/* 🔥 BORDER */}
             <div className="barberBorder absolute inset-0 rounded-2xl pointer-events-none" />
 
             <div className="relative z-10">
@@ -699,9 +747,18 @@ style={{
           </div>
 
           {/* NOT */}
-          <p className="text-center text-xs mt-8 md:mt-10 opacity-60">
-            {fiyat.not}
-          </p>
+       <div className="flex justify-center mt-8 md:mt-10">
+  <p
+    className="text-center text-xs px-4 py-2 rounded-xl backdrop-blur-md"
+    style={{
+      background: "rgba(0,0,0,0.6)",
+      color: "rgba(255,255,255,0.9)",
+      textShadow: "0 2px 10px rgba(0,0,0,0.6)"
+    }}
+  >
+    {fiyat.not}
+  </p>
+</div>
         </>
       )
     })()}
@@ -709,15 +766,15 @@ style={{
   </div>
 </section>
       {/* İŞLETME SAHİBİ */}
-   <section
-  
-  style={{ background: theme.bgSoft }}
+<section
   className="relative py-32 px-6 reveal overflow-hidden"
 >
-  {/* 🔥 SOFT STRIPE BG */}
-<div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-  <div className="barberStripe w-[200%] h-full" />
-</div>
+
+  {/* 🔥 STRIPE ARKA PLAN (AYNI SİSTEM) */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="barberStripe w-full h-full" />
+  </div>
+
   <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
     {/* GÖRSEL */}
@@ -728,13 +785,11 @@ style={{
         className="rounded-3xl shadow-2xl object-cover w-full h-[500px] transition duration-700 group-hover:scale-105"
       />
 
-      {/* glow */}
       <div
         style={{ background: theme.glow }}
         className="absolute -bottom-10 -left-10 w-[220px] h-[220px] blur-[120px] rounded-full"
       />
 
-      {/* üst parlama */}
       <div
         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500"
         style={{
@@ -745,26 +800,37 @@ style={{
     </div>
 
     {/* METİN */}
-    <div>
+    <div
+      className="p-6 md:p-8 rounded-2xl"
+      style={{
+        background: "rgba(255,255,255,0.92)"
+      }}
+    >
 
       <h2
-        style={{ color: theme.primary }}
+        style={{
+          color: theme.primary,
+          textShadow: "0 2px 10px rgba(0,0,0,0.15)"
+        }}
         className="heading text-3xl md:text-5xl font-bold tracking-tight mb-6"
       >
         {siteData.about.isim}
       </h2>
 
       <p
-        style={{ color: theme.text + "cc" }}
+        style={{
+          color: theme.text,
+          opacity: 0.95
+        }}
         className="text-base md:text-lg leading-relaxed mb-8"
       >
         {siteData.about.aciklama}
       </p>
 
-      {/* ALT HİGHLIGHT */}
-     <div className="w-24 h-[4px] overflow-hidden rounded-full">
-  <div className="barberStripe w-[200%] h-full" />
-</div>
+      <div
+        className="w-24 h-[4px] rounded-full"
+        style={{ background: theme.primary }}
+      />
 
     </div>
 
@@ -772,32 +838,39 @@ style={{
 </section>
 {/* HAKKIMIZDA / NEDEN BİZ */}
 <section
-  style={{ background: theme.bgSoft }}
   className="relative py-32 px-6 reveal overflow-hidden"
 >
 
-  {/* 🔥 SOFT STRIPE BACKGROUND */}
-  <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-    <div className="barberStripe w-[200%] h-full" />
+  {/* 🔥 STRIPE ARKA PLAN (NET) */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="barberStripe w-full h-full" />
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto">
 
-    {/* BAŞLIK */}
-    <div className="text-center mb-20">
-      <h2
-        style={{ color: theme.primary }}
-        className="heading text-3xl md:text-5xl font-bold tracking-tight"
+    {/* 🔥 BAŞLIK (ORTA + GLASS) */}
+    <div className="flex justify-center mb-20">
+      <div
+        className="text-center px-6 py-5 rounded-2xl max-w-xl w-full"
+        style={{ background: "rgba(0,0,0,0.6)" }}
       >
-        {siteData.nedenBiz.baslik}
-      </h2>
+        <h2
+          style={{
+            color: "#fff",
+            textShadow: "0 4px 20px rgba(0,0,0,0.7)"
+          }}
+          className="heading text-3xl md:text-5xl font-bold tracking-tight"
+        >
+          {siteData.nedenBiz.baslik}
+        </h2>
 
-      <p
-        style={{ color: theme.text + "99" }}
-        className="max-w-xl mx-auto mt-4 text-sm md:text-base"
-      >
-        {siteData.nedenBiz.aciklama}
-      </p>
+        <p
+          className="mt-4 text-sm md:text-base"
+          style={{ color: "rgba(255,255,255,0.85)" }}
+        >
+          {siteData.nedenBiz.aciklama}
+        </p>
+      </div>
     </div>
 
     {/* KARTLAR */}
@@ -809,9 +882,9 @@ style={{
           key={i}
           className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2 overflow-hidden"
           style={{
-            background: theme.card,
+            background: "rgba(255,255,255,0.92)",
             border: `1px solid ${theme.primary}20`,
-            boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
+            boxShadow: "0 20px 60px rgba(0,0,0,0.2)"
           }}
         >
 
@@ -828,7 +901,7 @@ style={{
 
           <div className="relative z-10 text-center">
 
-            {/* SAHTE İKON */}
+            {/* İKON */}
             <div
               style={{ background: theme.primary + "20" }}
               className="w-14 h-14 mx-auto mb-6 rounded-full flex items-center justify-center"
@@ -866,46 +939,56 @@ style={{
 {/* GALERİ */}
 <section
   id="galeri"
-  style={{ background: theme.bg }}
   className="relative py-24 md:py-32 px-4 md:px-6 reveal overflow-hidden"
 >
 
-  {/* 🔥 BG */}
-  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-    <div className="barberStripe w-[200%] h-full" />
+  {/* 🔥 STRIPE ARKA PLAN (NET) */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="barberStripe w-full h-full" />
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto">
 
-    {/* BAŞLIK */}
-    <div className="text-center mb-14 md:mb-20">
-      <h2
-        style={{ color: theme.primary }}
-        className="heading text-2xl md:text-5xl font-bold tracking-tight"
+    {/* 🔥 BAŞLIK (GLASS) */}
+    <div className="flex justify-center mb-14 md:mb-20">
+      <div
+        className="text-center px-6 py-4 rounded-2xl max-w-xl w-full"
+        style={{ background: "rgba(0,0,0,0.6)" }}
       >
-        {siteData.galeri.baslik}
-      </h2>
+        <h2
+          style={{
+            color: "#fff",
+            textShadow: "0 4px 20px rgba(0,0,0,0.7)"
+          }}
+          className="heading text-2xl md:text-5xl font-bold tracking-tight"
+        >
+          {siteData.galeri.baslik}
+        </h2>
 
-      <p
-        style={{ color: theme.text + "99" }}
-        className="max-w-xl mx-auto mt-3 md:mt-4 text-sm md:text-base"
-      >
-        {siteData.galeri.aciklama}
-      </p>
+        <p
+          className="mt-3 md:mt-4 text-sm md:text-base"
+          style={{ color: "rgba(255,255,255,0.85)" }}
+        >
+          {siteData.galeri.aciklama}
+        </p>
+      </div>
     </div>
 
     {/* 👨 ERKEK */}
-    <div
-      id="erkek"
-      className="mb-12 md:mb-16 scroll-mt-32"
-    >
+    <div id="erkek" className="mb-12 md:mb-16 scroll-mt-32">
 
-      <h3
-        className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-center"
-        style={{ color: theme.primary }}
-      >
-        Erkek Kesimleri
-      </h3>
+    <div className="flex justify-center mb-4 md:mb-6">
+  <h3
+    className="text-lg md:text-xl font-semibold px-4 py-2 rounded-xl text-center"
+    style={{
+      background: "rgba(0,0,0,0.6)",
+      color: "#fff",
+      textShadow: "0 2px 10px rgba(0,0,0,0.6)"
+    }}
+  >
+    Erkek Kesimleri
+  </h3>
+</div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 
@@ -922,8 +1005,10 @@ style={{
               className="w-full h-40 md:h-64 object-cover transition duration-700 group-hover:scale-110"
             />
 
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-t from-black/40 to-transparent" />
+            {/* karartma */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-black/40" />
 
+            {/* glow */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
               style={{
@@ -938,17 +1023,20 @@ style={{
     </div>
 
     {/* 👩 KADIN */}
-    <div
-      id="kadin"
-      className="scroll-mt-32"
-    >
+    <div id="kadin" className="scroll-mt-32">
 
-      <h3
-        className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-center"
-        style={{ color: theme.primary }}
-      >
-        Kadın Saç Modelleri
-      </h3>
+     <div className="flex justify-center mb-4 md:mb-6">
+  <h3
+    className="text-lg md:text-xl font-semibold px-4 py-2 rounded-xl text-center"
+    style={{
+      background: "rgba(0,0,0,0.6)",
+      color: "#fff",
+      textShadow: "0 2px 10px rgba(0,0,0,0.6)"
+    }}
+  >
+    Kadın Saç Modelleri
+  </h3>
+</div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 
@@ -965,7 +1053,7 @@ style={{
               className="w-full h-40 md:h-64 object-cover transition duration-700 group-hover:scale-110"
             />
 
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-black/40" />
 
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
@@ -985,35 +1073,39 @@ style={{
       {/* YORUMLAR */}
 <section
   id="yorumlar"
-  style={{ background: theme.bgSoft }}
   className="relative py-32 px-6 reveal overflow-hidden"
 >
 
-  {/* 🔥 SOFT STRIPE BG (en hafif) */}
-  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-    <div className="barberStripe w-[200%] h-full" />
+  {/* 🔥 STRIPE ARKA PLAN (NET) */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="barberStripe w-full h-full" />
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto">
 
-    {/* BAŞLIK */}
-    <div className="text-center mb-20">
-      <h2
-        style={{ color: theme.primary }}
-        className="heading text-3xl md:text-5xl font-bold tracking-tight"
+    {/* 🔥 BAŞLIK (GLASS) */}
+    <div className="flex justify-center mb-20">
+      <div
+        className="text-center px-6 py-5 rounded-2xl max-w-xl w-full"
+        style={{ background: "rgba(0,0,0,0.6)" }}
       >
-        {siteData.yorumlar.baslik}
-      </h2>
-
-      <div className="flex justify-center items-center gap-2 text-lg mt-4">
-        <span style={{ color: theme.primary }}>★★★★★</span>
-
-        <span
-          style={{ color: theme.text }}
-          className="text-sm ml-2"
+        <h2
+          className="heading text-3xl md:text-5xl font-bold tracking-tight"
+          style={{
+            color: "#fff",
+            textShadow: "0 4px 20px rgba(0,0,0,0.7)"
+          }}
         >
-          {siteData.yorumlar.puan}
-        </span>
+          {siteData.yorumlar.baslik}
+        </h2>
+
+        <div className="flex justify-center items-center gap-2 text-lg mt-4">
+          <span style={{ color: "#fff" }}>★★★★★</span>
+
+          <span className="text-sm ml-2 text-white/80">
+            {siteData.yorumlar.puan}
+          </span>
+        </div>
       </div>
     </div>
 
@@ -1025,14 +1117,14 @@ style={{
           key={i}
           className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2 overflow-hidden"
           style={{
-            background: theme.card,
+            background: "rgba(255,255,255,0.92)",
             border: `1px solid ${theme.primary}20`,
-            boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
+            boxShadow: "0 20px 60px rgba(0,0,0,0.2)"
           }}
         >
 
-          {/* 🔥 BORDER STRIPE (sabit) */}
-          <div className="barberBorder absolute inset-0 rounded-3xl pointer-events-none opacity-80" />
+          {/* 🔥 BORDER STRIPE */}
+          <div className="barberBorder absolute inset-0 rounded-3xl pointer-events-none" />
 
           {/* glow hover */}
           <div
@@ -1068,7 +1160,7 @@ style={{
               {item.yorum}
             </p>
 
-            {/* ALT DETAY */}
+            {/* ALT ÇİZGİ */}
             <div
               className="mt-6 h-[2px] w-10 group-hover:w-20 transition-all duration-300"
               style={{ background: theme.primary }}

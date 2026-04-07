@@ -23,47 +23,39 @@ html {
   }
 }
 
-/* 🔥 BARBER STRIPE (üst çizgi) */
+/* =========================
+   🔥 BARBER STRIPE (KALIN + NET)
+========================= */
 .barberStripe {
   background: repeating-linear-gradient(
     45deg,
-    #1d4ed8 0px,
-    #1d4ed8 10px,
-    #ffffff 10px,
-    #ffffff 20px,
-    #dc2626 20px,
-    #dc2626 30px
+    #1e3a8a 0px,
+    #1e3a8a 28px,
+    #ffffff 28px,
+    #ffffff 56px,
+    #b91c1c 56px,
+    #b91c1c 84px
   );
-  animation: stripeMove 3s linear infinite;
 }
 
-/* sadece stripe için */
-@keyframes stripeMove {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-60px);
-  }
-}
-
-/* 🔥 BORDER (SABİT ÇERÇEVE - KAYMAZ) */
+/* =========================
+   🔥 BORDER (UYUMLU STRIPE)
+========================= */
 .barberBorder {
   padding: 2px;
   border-radius: inherit;
 
   background: repeating-linear-gradient(
     45deg,
-    #2563eb,
-    #2563eb 10px,
-    #ffffff 10px,
-    #ffffff 20px,
-    #ef4444 20px,
-    #ef4444 30px
+    #1e3a8a 0px,
+    #1e3a8a 12px,
+    #ffffff 12px,
+    #ffffff 24px,
+    #b91c1c 24px,
+    #b91c1c 36px
   );
 
   background-size: 200% 200%;
-  animation: borderMove 40s linear infinite;
 
   -webkit-mask: 
     linear-gradient(#000 0 0) content-box, 
@@ -73,17 +65,9 @@ html {
   mask-composite: exclude;
 }
 
-/* 🔥 YENİ ANİMASYON (kaymaz) */
-@keyframes borderMove {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 200% 0%;
-  }
-}
-
-/* CARD */
+/* =========================
+   CARD
+========================= */
 .card {
   background: #fff;
   border-radius: 20px;
@@ -97,37 +81,47 @@ html {
   margin-bottom: 16px;
 }
 
-/* ANA KART */
+/* =========================
+   ANA KART
+========================= */
 .cardPro {
-  background: #fff;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
   border-radius: 22px;
   padding: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* DETAY KART */
+/* =========================
+   DETAY KART
+========================= */
 .miniCardPro {
-  background: #fff;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
   border-radius: 16px;
   padding: 16px;
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* SATIR */
+/* =========================
+   SATIR
+========================= */
 .rowPro {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .rowPro:last-child {
   border-bottom: none;
 }
 
-/* GENEL ROW */
+/* =========================
+   GENEL ROW
+========================= */
 .row {
   display: flex;
   justify-content: space-between;
@@ -139,7 +133,9 @@ html {
   border-bottom: none;
 }
 
-/* FİYAT */
+/* =========================
+   FİYAT
+========================= */
 .priceTag {
   background: #111;
   color: #fff;
@@ -149,12 +145,16 @@ html {
   border-radius: 999px;
 }
 
-/* SMALL */
+/* =========================
+   SMALL
+========================= */
 .small {
   font-size: 13px;
 }
 
-/* MOBİL */
+/* =========================
+   MOBİL
+========================= */
 @media (max-width: 768px) {
   .cardPro {
     padding: 14px;
@@ -170,7 +170,9 @@ html {
   }
 }
 
-/* CTA ANİMASYON */
+/* =========================
+   CTA ANİMASYON
+========================= */
 @keyframes pulseSoft {
   0% { transform: scale(1); opacity: 0.9; }
   50% { transform: scale(1.08); opacity: 1; }
@@ -182,7 +184,9 @@ html {
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body {
   background: var(--background);
   color: var(--foreground);
