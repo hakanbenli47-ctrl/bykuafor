@@ -132,14 +132,44 @@ yakinOteller: [
   ],
 
   // 🔹 HİZMETLER
-  hizmetler: [
-    { title: "Стрижка", desc: "Профессиональная стрижка по форме лица" },
-    { title: "Окрашивание", desc: "Стойкие и яркие цвета" },
-    { title: "Мелирование", desc: "Естественные цветовые переходы" },
-    { title: "Омбре", desc: "Современные техники окрашивания" },
-    { title: "Маникюр и педикюр", desc: "Уход за руками и ногами" },
-    { title: "Уход за волосами", desc: "Восстановление поврежденных волос" }
-  ],
+ hizmetler: [
+  {
+    title: "Фейд стрижка",
+    desc: "Современные и аккуратные фейд стрижки",
+    img: "/gorsel1.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Классическая стрижка и борода",
+    desc: "Профессиональная стрижка и оформление бороды",
+    img: "/gorsel2.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Слоистая женская стрижка",
+    desc: "Современные многослойные стрижки (soft wolf)",
+    img: "/gorsel5.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Французский боб",
+    desc: "Короткая и стильная женская стрижка",
+    img: "/gorsel7.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Окрашивание волос",
+    desc: "Яркие и стойкие цвета",
+    img: "/gorsel9.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Уход за волосами",
+    desc: "Восстановление и уход за поврежденными волосами",
+    img: "/gorsel8.jpg",
+    target: "kadin"
+  }
+],
 
   hizmetlerMeta: {
     baslik: "Наши услуги",
@@ -177,15 +207,21 @@ yakinOteller: [
   galeri: {
     baslik: "Наши работы",
     aciklama: "Реальные результаты клиентов",
-    gorseller: [
-      "/gorsel1.jpg",
-      "/gorsel2.jpg",
-      "/gorsel3.jpg",
-      "/gorsel4.jpg",
-      "/gorsel5.jpg",
-      "/gorsel6.jpg"
-    ]
-  },
+    erkek: [
+    "/gorsel1.jpg",
+    "/gorsel2.jpg",
+    "/gorsel3.jpg",
+    "/gorsel4.jpg"
+  ],
+
+  kadin: [
+    "/gorsel5.jpg",
+    "/gorsel7.jpg",
+    "/gorsel8.jpg",
+    "/gorsel9.jpg"
+  ]
+},
+
 
   // 🔹 YORUMLAR
   yorumlar: {

@@ -132,14 +132,57 @@ konumGorsel: "/konum.jpg"
   ],
 
   // 🔹 HİZMETLER
-  hizmetler: [
-    { title: "Saç Kesimi", desc: "Yüz tipine uygun profesyonel kesim" },
-    { title: "Saç Boyama", desc: "Kalıcı ve canlı renk uygulamaları" },
-    { title: "Röfle & Balyaj", desc: "Doğal ve modern renk geçişleri" },
-    { title: "Ombre", desc: "Trend saç renk uygulamaları" },
-    { title: "Manikür & Pedikür", desc: "El ve ayak bakımı" },
-    { title: "Saç Bakımı", desc: "Yıpranmış saçlara özel bakım" }
-  ],
+hizmetler: [
+  {
+    title: "Fade Saç Kesimi",
+    desc: "Modern ve temiz geçişli erkek kesimleri",
+    img: "/gorsel1.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Klasik Saç & Sakal",
+    desc: "Profesyonel saç ve sakal kombinleri",
+    img: "/gorsel2.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Modern Erkek Kesim",
+    desc: "Trend ve stil sahibi kesimler",
+    img: "/gorsel3.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Taper / Mid Fade",
+    desc: "Yumuşak geçişli modern kesim",
+    img: "/gorsel4.jpg",
+    target: "erkek"
+  },
+
+  {
+    title: "Katlı Kadın Kesimi",
+    desc: "Soft wolf ve modern katlı saç modelleri",
+    img: "/gorsel5.jpg",
+    target: "kadin"
+  },
+  {
+    title: "French Bob",
+    desc: "Kısa ve premium kadın kesimleri",
+    img: "/gorsel6.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Saç Boyama",
+    desc: "Canlı, kalıcı ve dikkat çekici renkler",
+    img: "/gorsel7.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Saç Bakımı",
+    desc: "Yıpranmış saçlara özel onarıcı bakım",
+    img: "/gorsel8.jpg",
+    target: "kadin"
+  }
+],
 
   hizmetlerMeta: {
     baslik: "Hizmetlerimiz",
@@ -174,18 +217,24 @@ konumGorsel: "/konum.jpg"
   },
 
   // 🔹 GALERİ
-  galeri: {
-    baslik: "Çalışmalarımız",
-    aciklama: "Gerçek müşteri sonuçları",
-    gorseller: [
-      "/gorsel1.jpg",
-      "/gorsel2.jpg",
-      "/gorsel3.jpg",
-      "/gorsel4.jpg",
-      "/gorsel5.jpg",
-      "/gorsel6.jpg"
-    ]
-  },
+galeri: {
+  baslik: "Çalışmalarımız",
+  aciklama: "Gerçek müşteri sonuçları",
+
+  erkek: [
+    "/gorsel1.jpg",
+    "/gorsel2.jpg",
+    "/gorsel3.jpg",
+    "/gorsel4.jpg"
+  ],
+
+  kadin: [
+    "/gorsel5.jpg",
+    "/gorsel7.jpg",
+    "/gorsel8.jpg",
+    "/gorsel9.jpg"
+  ]
+},
 
   // 🔹 YORUMLAR
   yorumlar: {

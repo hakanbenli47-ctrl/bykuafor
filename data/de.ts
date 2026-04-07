@@ -131,14 +131,44 @@ konumGorsel: "/konum.jpg"
   ],
 
   // 🔹 HİZMETLER
-  hizmetler: [
-    { title: "Haarschnitt", desc: "Individuell abgestimmt auf deine Gesichtsform" },
-    { title: "Haarfärbung", desc: "Lang anhaltende und lebendige Farben" },
-    { title: "Strähnen & Balayage", desc: "Natürliche und moderne Farbverläufe" },
-    { title: "Ombre", desc: "Trendige Farbtechniken" },
-    { title: "Maniküre & Pediküre", desc: "Pflege für Hände und Füße" },
-    { title: "Haarpflege", desc: "Behandlung für strapaziertes Haar" }
-  ],
+hizmetler: [
+  {
+    title: "Fade Haarschnitt",
+    desc: "Moderne und saubere Fade-Haarschnitte",
+    img: "/gorsel1.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Klassischer Schnitt & Bart",
+    desc: "Professionelles Haar- und Bartstyling",
+    img: "/gorsel2.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Gestufter Damenhaarschnitt",
+    desc: "Soft Wolf und moderne Stufenschnitte",
+    img: "/gorsel5.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Französischer Bob",
+    desc: "Kurzer und stilvoller Damenhaarschnitt",
+    img: "/gorsel7.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Haarfärbung",
+    desc: "Lebendige und langanhaltende Farben",
+    img: "/gorsel9.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Haarpflege",
+    desc: "Reparatur und Pflege für strapaziertes Haar",
+    img: "/gorsel8.jpg",
+    target: "kadin"
+  }
+],
 
   hizmetlerMeta: {
     baslik: "Unsere Leistungen",
@@ -176,15 +206,21 @@ konumGorsel: "/konum.jpg"
   galeri: {
     baslik: "Unsere Arbeiten",
     aciklama: "Echte Ergebnisse unserer Kunden",
-    gorseller: [
-      "/gorsel1.jpg",
-      "/gorsel2.jpg",
-      "/gorsel3.jpg",
-      "/gorsel4.jpg",
-      "/gorsel5.jpg",
-      "/gorsel6.jpg"
-    ]
-  },
+   erkek: [
+    "/gorsel1.jpg",
+    "/gorsel2.jpg",
+    "/gorsel3.jpg",
+    "/gorsel4.jpg"
+  ],
+
+  kadin: [
+    "/gorsel5.jpg",
+    "/gorsel7.jpg",
+    "/gorsel8.jpg",
+    "/gorsel9.jpg"
+  ]
+},
+
 
   // 🔹 YORUMLAR
   yorumlar: {

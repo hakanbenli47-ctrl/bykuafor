@@ -132,14 +132,44 @@ yakinOteller: [
   ],
 
   // 🔹 SERVICES
-  hizmetler: [
-    { title: "Haircut", desc: "Professional cuts tailored to your face shape" },
-    { title: "Hair Coloring", desc: "Long-lasting and vibrant colors" },
-    { title: "Highlights & Balayage", desc: "Natural and modern color transitions" },
-    { title: "Ombre", desc: "Trendy coloring techniques" },
-    { title: "Manicure & Pedicure", desc: "Hand and foot care" },
-    { title: "Hair Care", desc: "Treatment for damaged hair" }
-  ],
+hizmetler: [
+  {
+    title: "Fade Haircut",
+    desc: "Modern and clean fade haircuts",
+    img: "/gorsel1.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Classic Hair & Beard",
+    desc: "Professional hair and beard styling",
+    img: "/gorsel2.jpg",
+    target: "erkek"
+  },
+  {
+    title: "Layered Women's Cut",
+    desc: "Soft wolf and modern layered styles",
+    img: "/gorsel5.jpg",
+    target: "kadin"
+  },
+  {
+    title: "French Bob",
+    desc: "Short and premium women's haircut",
+    img: "/gorsel7.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Hair Coloring",
+    desc: "Vibrant and long-lasting colors",
+    img: "/gorsel9.jpg",
+    target: "kadin"
+  },
+  {
+    title: "Hair Treatment",
+    desc: "Repair and care for damaged hair",
+    img: "/gorsel8.jpg",
+    target: "kadin"
+  }
+],
 
   hizmetlerMeta: {
     baslik: "Our Services",
@@ -177,15 +207,21 @@ yakinOteller: [
   galeri: {
     baslik: "Our Work",
     aciklama: "Real client results",
-    gorseller: [
-      "/gorsel1.jpg",
-      "/gorsel2.jpg",
-      "/gorsel3.jpg",
-      "/gorsel4.jpg",
-      "/gorsel5.jpg",
-      "/gorsel6.jpg"
-    ]
-  },
+     erkek: [
+    "/gorsel1.jpg",
+    "/gorsel2.jpg",
+    "/gorsel3.jpg",
+    "/gorsel4.jpg"
+  ],
+
+  kadin: [
+    "/gorsel5.jpg",
+    "/gorsel7.jpg",
+    "/gorsel8.jpg",
+    "/gorsel9.jpg"
+  ]
+},
+
 
   // 🔹 REVIEWS
   yorumlar: {

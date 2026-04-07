@@ -411,8 +411,13 @@ style={{
     boxShadow: "0 30px 80px rgba(0,0,0,0.1)",
     border: `1px solid ${theme.primary}15`
   }}
-  className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-2xl p-4 md:p-10 backdrop-blur-xl"
+  className="relative grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 rounded-2xl p-4 md:p-10 backdrop-blur-xl overflow-hidden"
 >
+
+  {/* 🔥 BARBER STRIPE */}
+  <div className="absolute top-0 left-0 w-full h-[4px] overflow-hidden">
+    <div className="barberStripe w-[200%] h-full opacity-80" />
+  </div>
 
   {siteData.stats.map((item: any, i: number) => (
     <div
@@ -463,40 +468,47 @@ style={{
 </section>
 
 {/* SERVICES */}
-<section id="hizmetler" className="py-32 px-6 reveal">
-  <div className="max-w-7xl mx-auto">
+<section
+  id="hizmetler"
+  className="relative py-24 md:py-32 px-4 md:px-6 reveal overflow-hidden"
+>
+
+  {/* 🔥 ARKA PLAN */}
+  <div className="absolute inset-0 opacity-[0.025] pointer-events-none">
+    <div className="barberStripe w-[200%] h-full" />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto">
 
     {/* BAŞLIK */}
-    <div className="text-center mb-16">
-
+    <div className="text-center mb-12 md:mb-16">
       <h2
         style={{ color: theme.primary }}
-        className="heading text-3xl md:text-5xl font-bold tracking-tight"
+        className="heading text-2xl md:text-5xl font-bold tracking-tight"
       >
         {siteData.hizmetlerMeta.baslik}
       </h2>
 
       <p
         style={{ color: theme.text + "99" }}
-        className="mt-4 max-w-xl mx-auto text-sm md:text-base"
+        className="mt-3 md:mt-4 max-w-xl mx-auto text-sm md:text-base"
       >
         {siteData.hizmetlerMeta.aciklama}
       </p>
-
     </div>
 
     {/* GRID */}
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
 
       {siteData.hizmetler.map((item: any, i: number) => (
         <motion.div
           key={i}
-          whileHover={{ y: -8 }}
+          whileHover={{ y: -6 }}
           onClick={() => {
-            const el = document.getElementById("galeri")
+            const el = document.getElementById(item.target)
             if (el) el.scrollIntoView({ behavior: "smooth" })
           }}
-          className="group relative p-8 rounded-3xl transition duration-300 cursor-pointer overflow-hidden"
+          className="group relative p-6 md:p-8 rounded-3xl transition duration-300 cursor-pointer overflow-hidden"
           style={{
             background: theme.card,
             border: `1px solid ${theme.primary}20`,
@@ -504,12 +516,12 @@ style={{
           }}
         >
 
-          {/* 🔥 BARBER STRIPE */}
+          {/* ÜST STRIPE */}
           <div className="absolute top-0 left-0 w-full h-[3px] overflow-hidden rounded-t-3xl">
             <div className="barberStripe w-[200%] h-full opacity-80 group-hover:opacity-100" />
           </div>
 
-          {/* glow hover */}
+          {/* GLOW */}
           <div
             className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500"
             style={{
@@ -519,15 +531,22 @@ style={{
 
           <div className="relative z-10">
 
+            {/* KATEGORİ LABEL */}
+            <div className="mb-3 text-xs opacity-60">
+              {item.target === "erkek" ? "Erkek Hizmetleri" : "Kadın Hizmetleri"}
+            </div>
+
+            {/* BAŞLIK */}
             <h3
               style={{ color: theme.primary }}
-              className="heading text-xl font-semibold mb-3"
+              className="heading text-lg md:text-xl font-semibold mb-2"
             >
               {item.title}
             </h3>
 
+            {/* AÇIKLAMA */}
             <p
-              className="text-sm leading-relaxed"
+              className="text-xs md:text-sm leading-relaxed"
               style={{ color: theme.text + "cc" }}
             >
               {item.desc}
@@ -535,7 +554,7 @@ style={{
 
             {/* ALT ÇİZGİ */}
             <div
-              className="mt-6 h-[2px] w-10 group-hover:w-20 transition-all duration-300"
+              className="mt-4 md:mt-6 h-[2px] w-10 group-hover:w-20 transition-all duration-300"
               style={{ background: theme.primary }}
             />
 
@@ -548,9 +567,17 @@ style={{
 
   </div>
 </section>
-<section id="fiyatlar" className="py-24 px-4 md:px-6">
+<section
+  id="fiyatlar"
+  className="relative py-24 px-4 md:px-6 overflow-hidden"
+>
 
-  <div className="max-w-5xl mx-auto">
+  {/* 🔥 SOFT STRIPE BACKGROUND (çok hafif) */}
+  <div className="absolute inset-0 opacity-[0.015] pointer-events-none">
+    <div className="barberStripe w-[200%] h-full" />
+  </div>
+
+  <div className="relative z-10 max-w-5xl mx-auto">
 
     {(() => {
       const fiyat = siteData.fiyatlar
@@ -574,36 +601,44 @@ style={{
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
 
             {[fiyat.erkek, fiyat.kadin].map((kategori, i) => (
-              <div key={i} className="cardPro">
+              
+              <div key={i} className="cardPro relative rounded-2xl">
                 
-                <h3 className="text-lg md:text-xl font-semibold mb-5">
-                  {kategori.baslik}
-                </h3>
+                {/* 🔥 BORDER */}
+                <div className="barberBorder absolute inset-0 rounded-2xl pointer-events-none" />
 
-                <div className="flex flex-col">
-                  {kategori.liste.map((item: any, j: number) => (
-                    <div key={j} className="rowPro">
+                <div className="relative z-10">
+                  
+                  <h3 className="text-lg md:text-xl font-semibold mb-5">
+                    {kategori.baslik}
+                  </h3>
 
-                      {/* SOL */}
-                      <div className="flex flex-col">
-                        <span className="text-sm md:text-base font-medium">
-                          {item.ad}
-                        </span>
-                        <span className="text-xs opacity-50">
-                          {fiyat.aciklama}
-                        </span>
+                  <div className="flex flex-col">
+                    {kategori.liste.map((item: any, j: number) => (
+                      <div key={j} className="rowPro">
+
+                        {/* SOL */}
+                        <div className="flex flex-col">
+                          <span className="text-sm md:text-base font-medium">
+                            {item.ad}
+                          </span>
+                          <span className="text-xs opacity-50">
+                            {fiyat.aciklama}
+                          </span>
+                        </div>
+
+                        {/* SAĞ */}
+                        <div className="priceTag">
+                          {item.fiyat}
+                        </div>
+
                       </div>
+                    ))}
+                  </div>
 
-                      {/* SAĞ */}
-                      <div className="priceTag">
-                        {item.fiyat}
-                      </div>
-
-                    </div>
-                  ))}
                 </div>
-
               </div>
+
             ))}
 
           </div>
@@ -612,38 +647,53 @@ style={{
           <div className="mt-14 md:mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
 
             {fiyat.detay.map((blok: any, i: number) => (
-              <div key={i} className="miniCardPro">
+              
+              <div key={i} className="miniCardPro relative rounded-xl">
 
-                <h4 className="text-sm md:text-base font-semibold mb-3">
-                  {blok.baslik}
-                </h4>
+                {/* 🔥 BORDER */}
+                <div className="barberBorder absolute inset-0 rounded-xl pointer-events-none" />
 
-                {blok.liste.map((item: any, j: number) => (
-                  <div key={j} className="row small">
-                    <span>{item.ad}</span>
-                    <span>{item.fiyat}</span>
-                  </div>
-                ))}
+                <div className="relative z-10">
 
+                  <h4 className="text-sm md:text-base font-semibold mb-3">
+                    {blok.baslik}
+                  </h4>
+
+                  {blok.liste.map((item: any, j: number) => (
+                    <div key={j} className="row small">
+                      <span>{item.ad}</span>
+                      <span>{item.fiyat}</span>
+                    </div>
+                  ))}
+
+                </div>
               </div>
+
             ))}
 
           </div>
 
           {/* AĞDA */}
-          <div className="mt-14 md:mt-16 cardPro">
+          <div className="mt-14 md:mt-16 cardPro relative rounded-2xl">
 
-            <h3 className="text-lg md:text-xl font-semibold mb-4">
-              {fiyat.agda.baslik}
-            </h3>
+            {/* 🔥 BORDER */}
+            <div className="barberBorder absolute inset-0 rounded-2xl pointer-events-none" />
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {fiyat.agda.liste.map((item: any, i: number) => (
-                <div key={i} className="row small">
-                  <span>{item.ad}</span>
-                  <span>{item.fiyat}</span>
-                </div>
-              ))}
+            <div className="relative z-10">
+
+              <h3 className="text-lg md:text-xl font-semibold mb-4">
+                {fiyat.agda.baslik}
+              </h3>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {fiyat.agda.liste.map((item: any, i: number) => (
+                  <div key={i} className="row small">
+                    <span>{item.ad}</span>
+                    <span>{item.fiyat}</span>
+                  </div>
+                ))}
+              </div>
+
             </div>
 
           </div>
@@ -659,11 +709,16 @@ style={{
   </div>
 </section>
       {/* İŞLETME SAHİBİ */}
-    <section
+   <section
+  
   style={{ background: theme.bgSoft }}
-  className="py-32 px-6 reveal"
+  className="relative py-32 px-6 reveal overflow-hidden"
 >
-  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+  {/* 🔥 SOFT STRIPE BG */}
+<div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+  <div className="barberStripe w-[200%] h-full" />
+</div>
+  <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
     {/* GÖRSEL */}
     <div className="relative group">
@@ -707,10 +762,9 @@ style={{
       </p>
 
       {/* ALT HİGHLIGHT */}
-      <div
-        style={{ background: theme.primary }}
-        className="h-[3px] w-16 rounded-full"
-      />
+     <div className="w-24 h-[4px] overflow-hidden rounded-full">
+  <div className="barberStripe w-[200%] h-full" />
+</div>
 
     </div>
 
@@ -719,9 +773,15 @@ style={{
 {/* HAKKIMIZDA / NEDEN BİZ */}
 <section
   style={{ background: theme.bgSoft }}
-  className="py-32 px-6 reveal"
+  className="relative py-32 px-6 reveal overflow-hidden"
 >
-  <div className="max-w-7xl mx-auto">
+
+  {/* 🔥 SOFT STRIPE BACKGROUND */}
+  <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <div className="barberStripe w-[200%] h-full" />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto">
 
     {/* BAŞLIK */}
     <div className="text-center mb-20">
@@ -744,15 +804,19 @@ style={{
     <div className="grid md:grid-cols-3 gap-8">
 
       {siteData.nedenBiz.maddeler.map((item: any, i: number) => (
+        
         <div
           key={i}
-          className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2"
+          className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2 overflow-hidden"
           style={{
             background: theme.card,
             border: `1px solid ${theme.primary}20`,
             boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
           }}
         >
+
+          {/* 🔥 BORDER STRIPE */}
+          <div className="barberBorder absolute inset-0 rounded-3xl pointer-events-none" />
 
           {/* glow hover */}
           <div
@@ -764,7 +828,7 @@ style={{
 
           <div className="relative z-10 text-center">
 
-            {/* SAHTE İKON (circle) */}
+            {/* SAHTE İKON */}
             <div
               style={{ background: theme.primary + "20" }}
               className="w-14 h-14 mx-auto mb-6 rounded-full flex items-center justify-center"
@@ -792,6 +856,7 @@ style={{
           </div>
 
         </div>
+
       ))}
 
     </div>
@@ -802,78 +867,134 @@ style={{
 <section
   id="galeri"
   style={{ background: theme.bg }}
-  className="py-32 px-6 reveal"
+  className="relative py-24 md:py-32 px-4 md:px-6 reveal overflow-hidden"
 >
-  <div className="max-w-7xl mx-auto">
+
+  {/* 🔥 BG */}
+  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+    <div className="barberStripe w-[200%] h-full" />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto">
 
     {/* BAŞLIK */}
-    <div className="text-center mb-20">
+    <div className="text-center mb-14 md:mb-20">
       <h2
         style={{ color: theme.primary }}
-        className="heading text-3xl md:text-5xl font-bold tracking-tight"
+        className="heading text-2xl md:text-5xl font-bold tracking-tight"
       >
         {siteData.galeri.baslik}
       </h2>
 
       <p
         style={{ color: theme.text + "99" }}
-        className="max-w-xl mx-auto mt-4 text-sm md:text-base"
+        className="max-w-xl mx-auto mt-3 md:mt-4 text-sm md:text-base"
       >
         {siteData.galeri.aciklama}
       </p>
     </div>
 
-    {/* GRID */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {/* 👨 ERKEK */}
+    <div
+      id="erkek"
+      className="mb-12 md:mb-16 scroll-mt-32"
+    >
 
-      {siteData.galeri.gorseller.map((src: string, i: number) => (
-        <div
-          key={i}
-          className="group relative overflow-hidden rounded-2xl"
-        >
+      <h3
+        className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-center"
+        style={{ color: theme.primary }}
+      >
+        Erkek Kesimleri
+      </h3>
 
-          {/* GÖRSEL */}
-          <img
-            src={src}
-            className="w-full h-52 md:h-64 object-cover transition duration-700 group-hover:scale-110"
-          />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 
-          {/* KARARTMA */}
+        {siteData.galeri.erkek.map((src: string, i: number) => (
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
-            style={{
-              background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)"
-            }}
-          />
+            key={i}
+            className="group relative overflow-hidden rounded-xl md:rounded-2xl"
+          >
 
-          {/* GLOW */}
+            <div className="barberBorder absolute inset-0 rounded-xl md:rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500" />
+
+            <img
+              src={src}
+              className="w-full h-40 md:h-64 object-cover transition duration-700 group-hover:scale-110"
+            />
+
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-t from-black/40 to-transparent" />
+
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+              style={{
+                background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
+              }}
+            />
+
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    {/* 👩 KADIN */}
+    <div
+      id="kadin"
+      className="scroll-mt-32"
+    >
+
+      <h3
+        className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-center"
+        style={{ color: theme.primary }}
+      >
+        Kadın Saç Modelleri
+      </h3>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+
+        {siteData.galeri.kadin.map((src: string, i: number) => (
           <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
-            style={{
-              background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
-            }}
-          />
+            key={i}
+            className="group relative overflow-hidden rounded-xl md:rounded-2xl"
+          >
 
-          {/* HOVER ÇERÇEVE */}
-          <div
-            className="absolute inset-0 border opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"
-            style={{ borderColor: theme.primary }}
-          />
+            <div className="barberBorder absolute inset-0 rounded-xl md:rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500" />
 
-        </div>
-      ))}
+            <img
+              src={src}
+              className="w-full h-40 md:h-64 object-cover transition duration-700 group-hover:scale-110"
+            />
 
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-t from-black/40 to-transparent" />
+
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+              style={{
+                background: `linear-gradient(120deg, transparent, ${theme.glow}, transparent)`
+              }}
+            />
+
+          </div>
+        ))}
+
+      </div>
     </div>
 
   </div>
 </section>
       {/* YORUMLAR */}
- <section
+<section
   id="yorumlar"
   style={{ background: theme.bgSoft }}
-  className="py-32 px-6 reveal"
+  className="relative py-32 px-6 reveal overflow-hidden"
 >
-  <div className="max-w-7xl mx-auto">
+
+  {/* 🔥 SOFT STRIPE BG (en hafif) */}
+  <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+    <div className="barberStripe w-[200%] h-full" />
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto">
 
     {/* BAŞLIK */}
     <div className="text-center mb-20">
@@ -902,13 +1023,16 @@ style={{
       {siteData.yorumlar.liste.map((item: any, i: number) => (
         <div
           key={i}
-          className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2"
+          className="group relative p-8 rounded-3xl transition duration-300 hover:-translate-y-2 overflow-hidden"
           style={{
             background: theme.card,
             border: `1px solid ${theme.primary}20`,
             boxShadow: "0 20px 60px rgba(0,0,0,0.08)"
           }}
         >
+
+          {/* 🔥 BORDER STRIPE (sabit) */}
+          <div className="barberBorder absolute inset-0 rounded-3xl pointer-events-none opacity-80" />
 
           {/* glow hover */}
           <div
